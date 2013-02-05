@@ -20,7 +20,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
 
 	//testing
-	UIImage *tempimg = [UIImage imageNamed:@"demo.png"];
+	UIImage *tempimg = [UIImage imageNamed:@"ipad_mockup.png"];
 	[test setImage:tempimg];
 }
 
