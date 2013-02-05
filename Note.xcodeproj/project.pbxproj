@@ -26,6 +26,7 @@
 		7319F3DD16C0DB140019A497 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7319F3DC16C0DB140019A497 /* AudioToolbox.framework */; };
 		7319F3DF16C0DB1B0019A497 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7319F3DE16C0DB1B0019A497 /* CoreAudio.framework */; };
 		7319F3E116C0DB420019A497 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7319F3E016C0DB420019A497 /* CoreText.framework */; };
+		7319F3E316C0F37A0019A497 /* ipad_mockup.png in Resources */ = {isa = PBXBuildFile; fileRef = 7319F3E216C0F37A0019A497 /* ipad_mockup.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		7319F3DC16C0DB140019A497 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7319F3DE16C0DB1B0019A497 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		7319F3E016C0DB420019A497 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		7319F3E216C0F37A0019A497 /* ipad_mockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ipad_mockup.png; path = ../ipad_mockup.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		7319F3A716C0DAC00019A497 /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				7319F3E216C0F37A0019A497 /* ipad_mockup.png */,
 				7319F3B016C0DAC00019A497 /* AppDelegate.h */,
 				7319F3B116C0DAC00019A497 /* AppDelegate.m */,
 				7319F3B916C0DAC00019A497 /* MainStoryboard.storyboard */,
@@ -248,6 +251,7 @@
 				7319F3B616C0DAC00019A497 /* Default@2x.png in Resources */,
 				7319F3B816C0DAC00019A497 /* Default-568h@2x.png in Resources */,
 				7319F3BB16C0DAC00019A497 /* MainStoryboard.storyboard in Resources */,
+				7319F3E316C0F37A0019A497 /* ipad_mockup.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
