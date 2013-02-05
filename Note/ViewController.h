@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+
+	//assign an outlet to our object
+	IBOutlet UIImageView *test;
+
+}
 
 @end

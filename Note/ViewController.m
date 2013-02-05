@@ -18,6 +18,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+
+	//testing
+	UIImage *tempimg = [UIImage imageNamed:@"demo.png"];
+	[test setImage:tempimg];
 }
 
 - (void)didReceiveMemoryWarning
