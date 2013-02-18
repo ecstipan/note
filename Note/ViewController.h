@@ -15,6 +15,8 @@
 	UIView *controlView;
 	UIView *instrumentSelection;
 	UIImageView * instrumentBG;
+
+	//other constants
 	bool advancedmenushowing;
 }
 
