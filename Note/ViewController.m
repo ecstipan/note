@@ -38,6 +38,7 @@
 	[self.view addSubview:instrumentSelection];
 	[instrumentSelection addSubview:instrumentBG];
 
+	//Handle Swipe events
 	UISwipeGestureRecognizer *threeFingerSwipeUp = [[[UISwipeGestureRecognizer alloc]
                                                      initWithTarget:self
                                                      action:@selector(threeFingerSwipeUp:)] autorelease];
