@@ -11,8 +11,11 @@
 @interface ViewController : UIViewController {
 
 	//assign an outlet to our object
-	IBOutlet UIImageView *test;
-
+	UIImageView * backgroundView;
+	UIView *controlView;
+	UIView *instrumentSelection;
+	UIImageView * instrumentBG;
+	bool advancedmenushowing;
 }
 
 @end
