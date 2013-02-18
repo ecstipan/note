@@ -16,7 +16,7 @@
 	UIView *instrumentSelection;
 	UIImageView * instrumentBG;
 
-	//other constants
+	//other constants used for logicS
 	bool advancedmenushowing;
 }
 
