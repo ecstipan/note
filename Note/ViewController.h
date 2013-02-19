@@ -15,6 +15,7 @@
 	UIView *controlView;
 	UIView *instrumentSelection;
 	UIImageView * instrumentBG;
+	UIImageView * advControlBG;
 
 	//other constants used for logicS
 	bool advancedmenushowing;

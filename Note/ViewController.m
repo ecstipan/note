@@ -23,8 +23,11 @@
 	backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
 	[backgroundView setImage:[UIImage imageNamed:@"background.png"]];
 
-	controlView = [[UIView alloc] initWithFrame:CGRectMake(0, -220, 1024, 400)];
-	[controlView setBackgroundColor:[UIColor redColor]];
+	controlView = [[UIView alloc] initWithFrame:CGRectMake(0, -220, 1024, 380)];
+	[controlView setBackgroundColor:[UIColor clearColor]];
+
+	advControlBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 380)];
+	[advControlBG setImage:[UIImage imageNamed:@"advMenu.png"]];
 
 	instrumentSelection = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1024, 220)];
 	[instrumentSelection setBackgroundColor:[UIColor clearColor]];
@@ -37,6 +40,7 @@
 	[self.view addSubview:controlView];
 	[self.view addSubview:instrumentSelection];
 	[instrumentSelection addSubview:instrumentBG];
+	[controlView addSubview:advControlBG];
 
 	//Handle Swipe events
 	UISwipeGestureRecognizer *threeFingerSwipeUp = [[[UISwipeGestureRecognizer alloc]
@@ -76,7 +80,7 @@
                           delay:0
                         options: (UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
-                         controlView.frame = CGRectMake(0, -220, 1024, 400);
+                         controlView.frame = CGRectMake(0, -190, 1024, 407);
                      }
                      completion:^(BOOL finished){
                          NSLog(@"Advanced menu disabled.");
@@ -90,7 +94,7 @@
                           delay:0
                         options: (UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
-                         controlView.frame = CGRectMake(0, 170, 1024, 400);
+                         controlView.frame = CGRectMake(0, 190, 1024, 407);
                      }
                      completion:^(BOOL finished){
                          NSLog(@"Advanced menu enabled.");
