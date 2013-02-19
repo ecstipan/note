@@ -53,6 +53,8 @@
 	bool key_7_state;
 	bool key_8_state;
 
+	short int keyCount;
+
 	//other constants used for logicS
 	bool advancedmenushowing;
 

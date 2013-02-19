@@ -370,16 +370,29 @@
 		[self key_8_released];
 	}
 }
+-(void)KillAllKeys {
+	[self key_1_released];
+	[self key_2_released];
+	[self key_3_released];
+	[self key_4_released];
+	[self key_5_released];
+	[self key_6_released];
+	[self key_7_released];
+	[self key_8_released];
+}
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-	for (UITouch *touch in [event allTouches]) {
-		[self handlePianoKeySlide:touch];
-	}
-	for (UITouch *touch in [event allTouches]) {
-		[self handlePianoKeyPresses:touch];
+	if (event.allTouches.count < 4) {
+		for (UITouch *touch in [event allTouches]) {
+			[self handlePianoKeySlide:touch];
+		}
+		for (UITouch *touch in [event allTouches]) {
+			[self handlePianoKeyPresses:touch];
+		}
 	}
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	if (event.allTouches.count < 4)
 	for (UITouch *touch in [event allTouches]) {
 		[self handlePianoKeyPresses:touch];
 	}
