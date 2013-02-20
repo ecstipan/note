@@ -293,74 +293,6 @@
 	[key_8 setNeedsDisplay];
 	[SharedMusic NoteOff:8];
 }
--(void)handlePianoKeySlide:(UITouch *)touches {
-	if (key_1_state && !CGRectContainsPoint(key_1.frame, [touches locationInView:backgroundView])) {
-		[self key_1_released];
-	} else if (!key_1_state && CGRectContainsPoint(key_1.frame, [touches locationInView:backgroundView])) {
-		[self key_1_pressed];
-	}
-	if (key_2_state && !CGRectContainsPoint(key_2.frame, [touches locationInView:backgroundView])) {
-		[self key_2_released];
-	} else if (!key_2_state && CGRectContainsPoint(key_2.frame, [touches locationInView:backgroundView])) {
-		[self key_2_pressed];
-	}
-	if (key_3_state && !CGRectContainsPoint(key_3.frame, [touches locationInView:backgroundView])) {
-		[self key_3_released];
-	} else if (!key_3_state && CGRectContainsPoint(key_3.frame, [touches locationInView:backgroundView])) {
-		[self key_3_pressed];
-	}
-	if (key_4_state && !CGRectContainsPoint(key_4.frame, [touches locationInView:backgroundView])) {
-		[self key_4_released];
-	} else if (!key_4_state && CGRectContainsPoint(key_4.frame, [touches locationInView:backgroundView])) {
-		[self key_4_pressed];
-	}
-	if (key_5_state && !CGRectContainsPoint(key_5.frame, [touches locationInView:backgroundView])) {
-		[self key_5_released];
-	} else if (!key_5_state && CGRectContainsPoint(key_5.frame, [touches locationInView:backgroundView])) {
-		[self key_5_pressed];
-	}
-	if (key_6_state && !CGRectContainsPoint(key_6.frame, [touches locationInView:backgroundView])) {
-		[self key_6_released];
-	} else if (!key_6_state && CGRectContainsPoint(key_6.frame, [touches locationInView:backgroundView])) {
-		[self key_6_pressed];
-	}
-	if (key_7_state && !CGRectContainsPoint(key_7.frame, [touches locationInView:backgroundView])) {
-		[self key_7_released];
-	} else if (!key_7_state && CGRectContainsPoint(key_7.frame, [touches locationInView:backgroundView])) {
-		[self key_7_pressed];
-	}
-	if (key_8_state && !CGRectContainsPoint(key_8.frame, [touches locationInView:backgroundView])) {
-		[self key_8_released];
-	} else if (!key_8_state && CGRectContainsPoint(key_8.frame, [touches locationInView:backgroundView])) {
-		[self key_8_pressed];
-	}
-}
--(void)handlePianoKeyPresses:(UITouch *)touches {
-	if (!key_1_state && CGRectContainsPoint(key_1.frame, [touches locationInView:backgroundView])) {
-		[self key_1_pressed];
-	}
-	if (!key_2_state && CGRectContainsPoint(key_2.frame, [touches locationInView:backgroundView])) {
-		[self key_2_pressed];
-	}
-	if (!key_3_state && CGRectContainsPoint(key_3.frame, [touches locationInView:backgroundView])) {
-		[self key_3_pressed];
-	}
-	if (!key_4_state && CGRectContainsPoint(key_4.frame, [touches locationInView:backgroundView])) {
-		[self key_4_pressed];
-	}
-	if (!key_5_state && CGRectContainsPoint(key_5.frame, [touches locationInView:backgroundView])) {
-		[self key_5_pressed];
-	}
-	if (!key_6_state && CGRectContainsPoint(key_6.frame, [touches locationInView:backgroundView])) {
-		[self key_6_pressed];
-	}
-	if (!key_7_state && CGRectContainsPoint(key_7.frame, [touches locationInView:backgroundView])) {
-		[self key_7_pressed];
-	}
-	if (!key_8_state && CGRectContainsPoint(key_8.frame, [touches locationInView:backgroundView])) {
-		[self key_8_pressed];
-	}
-}
 -(void)handlePianoKeyReleases:(UITouch *)touches {
 	if (key_1_state && CGRectContainsPoint(key_1.frame, [touches locationInView:backgroundView])) {
 		[self key_1_released];
@@ -397,7 +329,22 @@
 	}
 	if (on && CGRectEqualToRect(key.frame, key_1.frame) && !key_1_state) [self key_1_pressed];
 	else if (!on && CGRectEqualToRect(key.frame, key_1.frame)) [self key_1_released];
+	if (on && CGRectEqualToRect(key.frame, key_2.frame) && !key_2_state) [self key_2_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_2.frame)) [self key_2_released];
+	if (on && CGRectEqualToRect(key.frame, key_3.frame) && !key_3_state) [self key_3_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_3.frame)) [self key_3_released];
+	if (on && CGRectEqualToRect(key.frame, key_4.frame) && !key_4_state) [self key_4_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_4.frame)) [self key_4_released];
+	if (on && CGRectEqualToRect(key.frame, key_5.frame) && !key_5_state) [self key_5_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_5.frame)) [self key_5_released];
+	if (on && CGRectEqualToRect(key.frame, key_6.frame) && !key_6_state) [self key_6_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_6.frame)) [self key_6_released];
+	if (on && CGRectEqualToRect(key.frame, key_7.frame) && !key_7_state) [self key_7_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_7.frame)) [self key_7_released];
+	if (on && CGRectEqualToRect(key.frame, key_8.frame) && !key_8_state) [self key_8_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_8.frame)) [self key_8_released];
 }
+
 -(void)KillAllKeys {
 	[self key_1_released];
 	[self key_2_released];
@@ -410,19 +357,27 @@
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-	if (event.allTouches.count < 4) {
-		for (UITouch *touch in [event allTouches]) {
-			[self handlePianoKeySlide:touch];
-		}
-		for (UITouch *touch in [event allTouches]) {
-			[self handlePianoKeyPresses:touch];
-		}
+	for (UITouch *touch in [event allTouches]) {
+		[self handleKeyPresses:event keyToCheck:key_1];
+		[self handleKeyPresses:event keyToCheck:key_2];
+		[self handleKeyPresses:event keyToCheck:key_3];
+		[self handleKeyPresses:event keyToCheck:key_4];
+		[self handleKeyPresses:event keyToCheck:key_5];
+		[self handleKeyPresses:event keyToCheck:key_6];
+		[self handleKeyPresses:event keyToCheck:key_7];
+		[self handleKeyPresses:event keyToCheck:key_8];
 	}
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	if (event.allTouches.count < 4)
 	for (UITouch *touch in [event allTouches]) {
-		[self handlePianoKeyPresses:touch];
+		[self handleKeyPresses:event keyToCheck:key_1];
+		[self handleKeyPresses:event keyToCheck:key_2];
+		[self handleKeyPresses:event keyToCheck:key_3];
+		[self handleKeyPresses:event keyToCheck:key_4];
+		[self handleKeyPresses:event keyToCheck:key_5];
+		[self handleKeyPresses:event keyToCheck:key_6];
+		[self handleKeyPresses:event keyToCheck:key_7];
+		[self handleKeyPresses:event keyToCheck:key_8];
 	}
 }
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
