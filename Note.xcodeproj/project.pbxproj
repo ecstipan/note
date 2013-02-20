@@ -23,6 +23,7 @@
 		7319F3DD16C0DB140019A497 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7319F3DC16C0DB140019A497 /* AudioToolbox.framework */; };
 		7319F3DF16C0DB1B0019A497 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7319F3DE16C0DB1B0019A497 /* CoreAudio.framework */; };
 		7319F3E116C0DB420019A497 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7319F3E016C0DB420019A497 /* CoreText.framework */; };
+		73C4574316D4796500F8A57A /* SharedMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C4574216D4796500F8A57A /* SharedMusic.m */; };
 		73DDD62816D221C0005E17BD /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DDD62716D221C0005E17BD /* background.png */; };
 		73DDD62A16D222F2005E17BD /* instrumentMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DDD62916D222F2005E17BD /* instrumentMenu.png */; };
 		73DDD62C16D2F9E5005E17BD /* advMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DDD62B16D2F9E5005E17BD /* advMenu.png */; };
@@ -83,6 +84,8 @@
 		7319F3DC16C0DB140019A497 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7319F3DE16C0DB1B0019A497 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		7319F3E016C0DB420019A497 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		73C4574116D4796500F8A57A /* SharedMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedMusic.h; sourceTree = "<group>"; };
+		73C4574216D4796500F8A57A /* SharedMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedMusic.m; sourceTree = "<group>"; };
 		73DDD62716D221C0005E17BD /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		73DDD62916D222F2005E17BD /* instrumentMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instrumentMenu.png; sourceTree = "<group>"; };
 		73DDD62B16D2F9E5005E17BD /* advMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = advMenu.png; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 				73DDD63B16D30A78005E17BD /* key_8_def.png */,
 				73DDD63C16D30A79005E17BD /* key_8_sel.png */,
 				7319F3A816C0DAC00019A497 /* Supporting Files */,
+				73C4574116D4796500F8A57A /* SharedMusic.h */,
+				73C4574216D4796500F8A57A /* SharedMusic.m */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				7319F3AE16C0DAC00019A497 /* main.m in Sources */,
 				7319F3B216C0DAC00019A497 /* AppDelegate.m in Sources */,
 				7319F3BE16C0DAC00019A497 /* ViewController.m in Sources */,
+				73C4574316D4796500F8A57A /* SharedMusic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
