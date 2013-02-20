@@ -8,6 +8,7 @@
 //
 
 #import "ViewController.h"
+#import "SharedMusic.h"
 
 @interface ViewController ()
 
@@ -186,96 +187,112 @@
 	key_1_state = true;
 	[key_1 setImage:key_1_selBG];
 	[key_1 setNeedsDisplay];
+	[SharedMusic NoteOn:1];
 }
 - (void)key_1_released {
 	NSLog(@"Key 1 up.");
 	key_1_state = false;
 	[key_1 setImage:key_1_defaultBG];
 	[key_1 setNeedsDisplay];
+	[SharedMusic NoteOff:1];
 }
 - (void)key_2_pressed {
 	NSLog(@"Key 2 down.");
 	key_2_state = true;
 	[key_2 setImage:key_2_selBG];
 	[key_2 setNeedsDisplay];
+	[SharedMusic NoteOn:2];
 }
 - (void)key_2_released {
 	NSLog(@"Key 2 up.");
 	key_2_state = false;
 	[key_2 setImage:key_2_defaultBG];
 	[key_2 setNeedsDisplay];
+	[SharedMusic NoteOff:2];
 }
 - (void)key_3_pressed {
 	NSLog(@"Key 3 down.");
 	key_3_state = true;
 	[key_3 setImage:key_3_selBG];
 	[key_3 setNeedsDisplay];
+	[SharedMusic NoteOn:3];
 }
 - (void)key_3_released {
 	NSLog(@"Key 3 up.");
 	key_3_state = false;
 	[key_3 setImage:key_3_defaultBG];
 	[key_3 setNeedsDisplay];
+	[SharedMusic NoteOff:3];
 }
 - (void)key_4_pressed {
 	NSLog(@"Key 4 down.");
 	key_4_state = true;
 	[key_4 setImage:key_4_selBG];
 	[key_4 setNeedsDisplay];
+	[SharedMusic NoteOn:4];
 }
 - (void)key_4_released {
 	NSLog(@"Key 4 up.");
 	key_4_state = false;
 	[key_4 setImage:key_4_defaultBG];
 	[key_4 setNeedsDisplay];
+	[SharedMusic NoteOff:4];
 }
 - (void)key_5_pressed {
 	NSLog(@"Key 5 down.");
 	key_5_state = true;
 	[key_5 setImage:key_5_selBG];
 	[key_5 setNeedsDisplay];
+	[SharedMusic NoteOn:5];
 }
 - (void)key_5_released {
 	NSLog(@"Key 5 up.");
 	key_5_state = false;
 	[key_5 setImage:key_5_defaultBG];
 	[key_5 setNeedsDisplay];
+	[SharedMusic NoteOff:5];
 }
 - (void)key_6_pressed {
 	NSLog(@"Key 6 down.");
 	key_6_state = true;
 	[key_6 setImage:key_6_selBG];
 	[key_6 setNeedsDisplay];
+	[SharedMusic NoteOn:6];
 }
 - (void)key_6_released {
 	NSLog(@"Key 6 up.");
 	key_6_state = false;
 	[key_6 setImage:key_6_defaultBG];
 	[key_6 setNeedsDisplay];
+	[SharedMusic NoteOff:6];
 }
 - (void)key_7_pressed {
 	NSLog(@"Key 7 down.");
 	key_7_state = true;
 	[key_7 setImage:key_7_selBG];
 	[key_7 setNeedsDisplay];
+	[SharedMusic NoteOn:7];
 }
 - (void)key_7_released {
 	NSLog(@"Key 7 up.");
 	key_7_state = false;
 	[key_7 setImage:key_7_defaultBG];
 	[key_7 setNeedsDisplay];
+	[SharedMusic NoteOff:7];
 }
 - (void)key_8_pressed {
 	NSLog(@"Key 8 down.");
 	key_8_state = true;
 	[key_8 setImage:key_8_selBG];
 	[key_8 setNeedsDisplay];
+	[SharedMusic NoteOn:8];
 }
 - (void)key_8_released {
 	NSLog(@"Key 8 up.");
 	key_8_state = false;
 	[key_8 setImage:key_8_defaultBG];
 	[key_8 setNeedsDisplay];
+	[SharedMusic NoteOff:8];
 }
 -(void)handlePianoKeySlide:(UITouch *)touches {
 	if (key_1_state && !CGRectContainsPoint(key_1.frame, [touches locationInView:backgroundView])) {
