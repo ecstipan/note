@@ -370,6 +370,17 @@
 		[self key_8_released];
 	}
 }
+-(void)handleKeyPresses:(UIEvent *)event keyToCheck:(UIImageView *)key{
+	bool on = false;
+	for (UITouch *touch in [event allTouches]) {
+		if (CGRectContainsPoint(key.frame, [touch locationInView:backgroundView])) {
+			on = true;
+			break;
+		}
+	}
+	if (on && CGRectEqualToRect(key.frame, key_1.frame) && !key_1_state) [self key_1_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_1.frame)) [self key_1_released];
+}
 -(void)KillAllKeys {
 	[self key_1_released];
 	[self key_2_released];
