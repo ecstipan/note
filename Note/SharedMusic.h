@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface SharedMusic : NSObject
-	-(void)NoteOn:(short int)key_number;
-	-(void)NoteOff:(short int)key_number;
+	+ (void)NoteOn:(NSInteger)key_number;
+	+ (void)NoteOff:(NSInteger)key_number;
 @end
