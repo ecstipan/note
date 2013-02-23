@@ -19,9 +19,14 @@
 {
     [super viewDidLoad];
 	UIKeyOffset = 56;
+	UIInstOffset = 64;
+	currentInstrument = piano;
+	currentKey = CMajor;
+	currentMode = single;
+	
 	key_1_state = false;
 	key_2_state = false;
-	key_3_state = false;
+	key_3_state = false;  
 	key_4_state = false;
 	key_5_state = false;
 	key_6_state = false;
@@ -32,7 +37,6 @@
 	self.view.exclusiveTouch = NO;
 
 	[self.view setMultipleTouchEnabled:true];
-	
 	
 	// Do any additional setup after loading the view, typically from a nib.
 
@@ -71,6 +75,24 @@
 	key_7_selBG = [UIImage imageNamed:@"key_7_sel.png"];
 	key_8_selBG = [UIImage imageNamed:@"key_8_sel.png"];
 
+	inst_1_s = [UIImage imageNamed:@"inst_1_s.png"];
+	inst_2_s = [UIImage imageNamed:@"inst_2_s.png"];
+	inst_3_s = [UIImage imageNamed:@"inst_3_s.png"];
+	inst_4_s = [UIImage imageNamed:@"inst_4_s.png"];
+	inst_1_u = [UIImage imageNamed:@"inst_1_u.png"];
+	inst_2_u = [UIImage imageNamed:@"inst_2_u.png"];
+	inst_3_u = [UIImage imageNamed:@"inst_3_u.png"];
+	inst_4_u = [UIImage imageNamed:@"inst_4_u.png"];
+
+	inst_1 = [[UIImageView alloc] initWithFrame:CGRectMake(UIInstOffset+0, 8, 200, 190)];
+	[inst_1 setImage:inst_1_s];
+	inst_2 = [[UIImageView alloc] initWithFrame:CGRectMake(UIInstOffset+230, 8, 200, 190)];
+	[inst_2 setImage:inst_2_u];
+	inst_3 = [[UIImageView alloc] initWithFrame:CGRectMake(UIInstOffset+460, 8, 200, 190)];
+	[inst_3 setImage:inst_3_u];
+	inst_4 = [[UIImageView alloc] initWithFrame:CGRectMake(UIInstOffset+690, 8, 200, 190)];
+	[inst_4 setImage:inst_4_u];
+	
 	key_1 = [[UIImageView alloc] initWithFrame:CGRectMake(UIKeyOffset+115*0, 548, 115, 220)];
 	[key_1 setImage:key_1_defaultBG];
 	key_2 = [[UIImageView alloc] initWithFrame:CGRectMake(UIKeyOffset+115*1, 548, 115, 220)];
@@ -94,6 +116,10 @@
 	[self.view addSubview:instrumentSelection];
 	[instrumentSelection addSubview:instrumentBG];
 	[controlView addSubview:advControlBG];
+	[instrumentSelection addSubview:inst_1];
+	[instrumentSelection addSubview:inst_2];
+	[instrumentSelection addSubview:inst_3];
+	[instrumentSelection addSubview:inst_4];
 
 	//Add our buttons to the view
 	[self.view addSubview:key_1];
@@ -104,6 +130,57 @@
 	[self.view addSubview:key_6];
 	[self.view addSubview:key_7];
 	[self.view addSubview:key_8];
+
+	//handle our advanced views
+	key_c_u = [UIImage imageNamed:@"key_c_u.png"];
+	key_c_s = [UIImage imageNamed:@"key_c_s.png"];
+	key_f_u = [UIImage imageNamed:@"key_f_u.png"];
+	key_f_s = [UIImage imageNamed:@"key_f_s.png"];
+	key_g_u = [UIImage imageNamed:@"key_g_u.png"];
+	key_g_s = [UIImage imageNamed:@"key_g_s.png"];
+	
+	musickey_1 = [[UIImageView alloc] initWithFrame:CGRectMake(570, 110, 90, 100)];
+	[musickey_1 setImage:key_c_s];
+	musickey_2 = [[UIImageView alloc] initWithFrame:CGRectMake(549, 226, 50, 66)];
+	[musickey_2 setImage:key_f_u];
+	musickey_3 = [[UIImageView alloc] initWithFrame:CGRectMake(624, 226, 66, 66)];
+	[musickey_3 setImage:key_g_u];
+
+	[advControlBG addSubview:musickey_1];
+	[advControlBG addSubview:musickey_2];
+	[advControlBG addSubview:musickey_3];
+
+
+	mode_1_u = [UIImage imageNamed:@"mode_1_u.png"];
+	mode_1_s = [UIImage imageNamed:@"mode_1_s.png"];
+	mode_2_u = [UIImage imageNamed:@"mode_2_u.png"];
+	mode_2_s = [UIImage imageNamed:@"mode_2_s.png"];
+	mode_3_u = [UIImage imageNamed:@"mode_3_u.png"];
+	mode_3_s = [UIImage imageNamed:@"mode_3_s.png"];
+
+	mode_1 = [[UIImageView alloc] initWithFrame:CGRectMake(44, 128, 112, 165)];
+	[mode_1 setImage:mode_1_s];
+	mode_2 = [[UIImageView alloc] initWithFrame:CGRectMake(192, 110, 110, 175)];
+	[mode_2 setImage:mode_2_u];
+	mode_3 = [[UIImageView alloc] initWithFrame:CGRectMake(340, 138, 130, 154)];
+	[mode_3 setImage:mode_3_u];
+
+	[advControlBG addSubview:mode_1];
+	[advControlBG addSubview:mode_2];
+	[advControlBG addSubview:mode_3];
+
+	rec_u = [UIImage imageNamed:@"mic_rec_u.png"];
+	rec_s = [UIImage imageNamed:@"mic_mic_rec_s.png"];
+	play_u = [UIImage imageNamed:@"mic_play_u.png"];
+	play_s = [UIImage imageNamed:@"mic_play_s.png"];
+
+	record = [[UIImageView alloc] initWithFrame:CGRectMake(800, 214, 64, 64)];
+	[record setImage:rec_u];
+	play = [[UIImageView alloc] initWithFrame:CGRectMake(910, 214, 59, 66)];
+	[play setImage:play_u];
+
+	[advControlBG addSubview:record];
+	[advControlBG addSubview:play];
 
 	//Handle Swipe events
 	UISwipeGestureRecognizer *threeFingerSwipeUp = [[[UISwipeGestureRecognizer alloc]
@@ -143,25 +220,40 @@
                           delay:0
                         options: (UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction)
                      animations:^{
-                         controlView.frame = CGRectMake(0, -190, 1024, 407);
+                         controlView.frame = CGRectMake(0, -407, 1024, 407);
                      }
                      completion:^(BOOL finished){
-                         NSLog(@"Advanced menu disabled.");
+						 [UIView animateWithDuration:0.3
+											   delay:0
+											 options: (UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction)
+										  animations:^{
+											  instrumentSelection.frame = CGRectMake(0, -220, 1024, 220);
+										  }
+										  completion:^(BOOL finished){
+											  NSLog(@"Advanced menu disabled.");
+										  }];
                      }];
 	advancedmenushowing = false;
 }
 
--(void)showAdcancedMenu
-{
+-(void)showAdcancedMenu {
 	[UIView animateWithDuration:0.3
-                          delay:0
-                        options: (UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction)
-                     animations:^{
-                         controlView.frame = CGRectMake(0, 190, 1024, 407);
-                     }
-                     completion:^(BOOL finished){
-                         NSLog(@"Advanced menu enabled.");
-                     }];
+						  delay:0
+						options: (UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction)
+					 animations:^{
+						 instrumentSelection.frame = CGRectMake(0, 0, 1024, 220);
+					 }
+					 completion:^(BOOL finished){
+						 [UIView animateWithDuration:0.3
+											   delay:0
+											 options: (UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction)
+										  animations:^{
+											  controlView.frame = CGRectMake(0, 190, 1024, 407);
+										  }
+										  completion:^(BOOL finished){
+											  NSLog(@"Advanced menu enabled.");
+										  }];
+					 }];
 	advancedmenushowing = true;
 }
 
@@ -319,7 +411,7 @@
 		[self key_8_released];
 	}
 }
--(void)handleKeyPresses:(UIEvent *)event keyToCheck:(UIImageView *)key{
+-(void)handleKeyPressesPoly:(UIEvent *)event keyToCheck:(UIImageView *)key{
 	bool on = false;
 	for (UITouch *touch in [event allTouches]) {
 		if (CGRectContainsPoint(key.frame, [touch locationInView:backgroundView])) {
@@ -328,21 +420,42 @@
 		}
 	}
 	if (on && CGRectEqualToRect(key.frame, key_1.frame) && !key_1_state) [self key_1_pressed];
-	else if (!on && CGRectEqualToRect(key.frame, key_1.frame)) [self key_1_released];
+	else if (!on && CGRectEqualToRect(key.frame, key_1.frame) && key_1_state) [self key_1_released];
 	if (on && CGRectEqualToRect(key.frame, key_2.frame) && !key_2_state) [self key_2_pressed];
-	else if (!on && CGRectEqualToRect(key.frame, key_2.frame)) [self key_2_released];
+	else if (!on && CGRectEqualToRect(key.frame, key_2.frame) && key_2_state) [self key_2_released];
 	if (on && CGRectEqualToRect(key.frame, key_3.frame) && !key_3_state) [self key_3_pressed];
-	else if (!on && CGRectEqualToRect(key.frame, key_3.frame)) [self key_3_released];
+	else if (!on && CGRectEqualToRect(key.frame, key_3.frame) && key_3_state) [self key_3_released];
 	if (on && CGRectEqualToRect(key.frame, key_4.frame) && !key_4_state) [self key_4_pressed];
-	else if (!on && CGRectEqualToRect(key.frame, key_4.frame)) [self key_4_released];
+	else if (!on && CGRectEqualToRect(key.frame, key_4.frame) && key_4_state) [self key_4_released];
 	if (on && CGRectEqualToRect(key.frame, key_5.frame) && !key_5_state) [self key_5_pressed];
-	else if (!on && CGRectEqualToRect(key.frame, key_5.frame)) [self key_5_released];
+	else if (!on && CGRectEqualToRect(key.frame, key_5.frame) && key_5_state) [self key_5_released];
 	if (on && CGRectEqualToRect(key.frame, key_6.frame) && !key_6_state) [self key_6_pressed];
-	else if (!on && CGRectEqualToRect(key.frame, key_6.frame)) [self key_6_released];
+	else if (!on && CGRectEqualToRect(key.frame, key_6.frame) && key_6_state) [self key_6_released];
 	if (on && CGRectEqualToRect(key.frame, key_7.frame) && !key_7_state) [self key_7_pressed];
-	else if (!on && CGRectEqualToRect(key.frame, key_7.frame)) [self key_7_released];
+	else if (!on && CGRectEqualToRect(key.frame, key_7.frame) && key_7_state) [self key_7_released];
 	if (on && CGRectEqualToRect(key.frame, key_8.frame) && !key_8_state) [self key_8_pressed];
-	else if (!on && CGRectEqualToRect(key.frame, key_8.frame)) [self key_8_released];
+	else if (!on && CGRectEqualToRect(key.frame, key_8.frame) && key_8_state) [self key_8_released];
+}
+-(void)handleKeyPressesMono:(UITouch *)touch keyToCheck:(UIImageView *)key{
+	bool on = false;
+	if (CGRectContainsPoint(key.frame, [touch locationInView:backgroundView])) on = true;
+
+	if (on && CGRectEqualToRect(key.frame, key_1.frame) && !key_1_state) [self key_1_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_1.frame) && key_1_state) [self key_1_released];
+	if (on && CGRectEqualToRect(key.frame, key_2.frame) && !key_2_state) [self key_2_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_2.frame) && key_2_state) [self key_2_released];
+	if (on && CGRectEqualToRect(key.frame, key_3.frame) && !key_3_state) [self key_3_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_3.frame) && key_3_state) [self key_3_released];
+	if (on && CGRectEqualToRect(key.frame, key_4.frame) && !key_4_state) [self key_4_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_4.frame) && key_4_state) [self key_4_released];
+	if (on && CGRectEqualToRect(key.frame, key_5.frame) && !key_5_state) [self key_5_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_5.frame) && key_5_state) [self key_5_released];
+	if (on && CGRectEqualToRect(key.frame, key_6.frame) && !key_6_state) [self key_6_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_6.frame) && key_6_state) [self key_6_released];
+	if (on && CGRectEqualToRect(key.frame, key_7.frame) && !key_7_state) [self key_7_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_7.frame) && key_7_state) [self key_7_released];
+	if (on && CGRectEqualToRect(key.frame, key_8.frame) && !key_8_state) [self key_8_pressed];
+	else if (!on && CGRectEqualToRect(key.frame, key_8.frame) && key_8_state) [self key_8_released];
 }
 
 -(void)KillAllKeys {
@@ -355,29 +468,148 @@
 	[self key_7_released];
 	[self key_8_released];
 }
+-(void) setCurrentInstrument:(SharedMusicInstrument)inst {
+	currentInstrument = inst;
+	if (inst == piano) {
+		NSLog(@"Setting instrument to Piano...");
+		[inst_1 setImage:inst_1_s];
+		[inst_2 setImage:inst_2_u];
+		[inst_3 setImage:inst_3_u];
+		[inst_4 setImage:inst_4_u];
+	} else if (inst == strings) {
+		NSLog(@"Setting instrument to Strings...");
+		[inst_1 setImage:inst_1_u];
+		[inst_2 setImage:inst_2_s];
+		[inst_3 setImage:inst_3_u];
+		[inst_4 setImage:inst_4_u];
+	} else if (inst == bells) {
+		NSLog(@"Setting instrument to Bells...");
+		[inst_1 setImage:inst_1_u];
+		[inst_2 setImage:inst_2_u];
+		[inst_3 setImage:inst_3_s];
+		[inst_4 setImage:inst_4_u];
+	} else if (inst == horn) {
+		NSLog(@"Setting instrument to Horn...");
+		[inst_1 setImage:inst_1_u];
+		[inst_2 setImage:inst_2_u];
+		[inst_3 setImage:inst_3_u];
+		[inst_4 setImage:inst_4_s];
+	}
+}
+
+-(void)handleModeState:(UITouch *)touch {
+	if (currentMode!=single && CGRectContainsPoint(mode_1.frame, [touch locationInView:advControlBG])) [self setCurrentMode:single];
+	if (currentMode!=chord && CGRectContainsPoint(mode_2.frame, [touch locationInView:advControlBG])) [self setCurrentMode:chord];
+	if (currentMode!=arpegiated && CGRectContainsPoint(mode_3.frame, [touch locationInView:advControlBG])) [self setCurrentMode:arpegiated];
+}
+
+-(void)setCurrentMode:(SharedMusicMode)mode {
+	currentMode = mode;
+	if (mode == single) {
+		NSLog(@"Setting mode to Single...");
+		[mode_1 setImage:mode_1_s];
+		[mode_2 setImage:mode_2_u];
+		[mode_3 setImage:mode_3_u];
+	} else if (mode == chord) {
+		NSLog(@"Setting mode to Chord...");
+		[mode_1 setImage:mode_1_u];
+		[mode_2 setImage:mode_2_s];
+		[mode_3 setImage:mode_3_u];
+	} else if (mode == arpegiated) {
+		NSLog(@"Setting mode to Arpegiated...");
+		[mode_1 setImage:mode_1_u];
+		[mode_2 setImage:mode_2_u];
+		[mode_3 setImage:mode_3_s];
+	}
+}
+-(void)handleInstrumentState:(UITouch *)touch {
+	if (currentInstrument!=piano && CGRectContainsPoint(inst_1.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:piano];
+	if (currentInstrument!=strings && CGRectContainsPoint(inst_2.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:strings];
+	if (currentInstrument!=bells && CGRectContainsPoint(inst_3.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:bells];
+	if (currentInstrument!=horn && CGRectContainsPoint(inst_4.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:horn];
+}
+
+-(void)setCurrentKey:(SharedMusicKey)key {
+	currentKey = key;
+	if (key == CMajor) {
+		NSLog(@"Setting key to C Major...");
+		[musickey_1 setImage:key_c_s];
+		[musickey_2 setImage:key_f_u];
+		[musickey_3 setImage:key_g_u];
+	} else if (key == FMajor) {
+		NSLog(@"Setting key to F Major...");
+		[musickey_1 setImage:key_c_u];
+		[musickey_2 setImage:key_f_s];
+		[musickey_3 setImage:key_g_u];
+	} else if (key == GMajor) {
+		NSLog(@"Setting key to G Major...");
+		[musickey_1 setImage:key_c_u];
+		[musickey_2 setImage:key_f_u];
+		[musickey_3 setImage:key_g_s];
+	}
+}
+-(void)handleMusicKeyState:(UITouch *)touch {
+	if (currentKey!=CMajor && CGRectContainsPoint(musickey_1.frame, [touch locationInView:advControlBG])) [self setCurrentKey:CMajor];
+	if (currentKey!=FMajor && CGRectContainsPoint(musickey_2.frame, [touch locationInView:advControlBG])) [self setCurrentKey:FMajor];
+	if (currentKey!=GMajor && CGRectContainsPoint(musickey_3.frame, [touch locationInView:advControlBG])) [self setCurrentKey:GMajor];
+}
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-	for (UITouch *touch in [event allTouches]) {
-		[self handleKeyPresses:event keyToCheck:key_1];
-		[self handleKeyPresses:event keyToCheck:key_2];
-		[self handleKeyPresses:event keyToCheck:key_3];
-		[self handleKeyPresses:event keyToCheck:key_4];
-		[self handleKeyPresses:event keyToCheck:key_5];
-		[self handleKeyPresses:event keyToCheck:key_6];
-		[self handleKeyPresses:event keyToCheck:key_7];
-		[self handleKeyPresses:event keyToCheck:key_8];
+	if (currentMode == single) {
+		for (UITouch *touch in [event allTouches]) {
+			[self handleKeyPressesPoly:event keyToCheck:key_1];
+			[self handleKeyPressesPoly:event keyToCheck:key_2];
+			[self handleKeyPressesPoly:event keyToCheck:key_3];
+			[self handleKeyPressesPoly:event keyToCheck:key_4];
+			[self handleKeyPressesPoly:event keyToCheck:key_5];
+			[self handleKeyPressesPoly:event keyToCheck:key_6];
+			[self handleKeyPressesPoly:event keyToCheck:key_7];
+			[self handleKeyPressesPoly:event keyToCheck:key_8];
+		}
+	}else {
+		if (event.allTouches.count == 1) {
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_1];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_2];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_3];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_4];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_5];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_6];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_7];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_8];
+		}
 	}
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	for (UITouch *touch in [event allTouches]) {
-		[self handleKeyPresses:event keyToCheck:key_1];
-		[self handleKeyPresses:event keyToCheck:key_2];
-		[self handleKeyPresses:event keyToCheck:key_3];
-		[self handleKeyPresses:event keyToCheck:key_4];
-		[self handleKeyPresses:event keyToCheck:key_5];
-		[self handleKeyPresses:event keyToCheck:key_6];
-		[self handleKeyPresses:event keyToCheck:key_7];
-		[self handleKeyPresses:event keyToCheck:key_8];
+	if (currentMode == single) {
+		for (UITouch *touch in [event allTouches]) {
+			[self handleKeyPressesPoly:event keyToCheck:key_1];
+			[self handleKeyPressesPoly:event keyToCheck:key_2];
+			[self handleKeyPressesPoly:event keyToCheck:key_3];
+			[self handleKeyPressesPoly:event keyToCheck:key_4];
+			[self handleKeyPressesPoly:event keyToCheck:key_5];
+			[self handleKeyPressesPoly:event keyToCheck:key_6];
+			[self handleKeyPressesPoly:event keyToCheck:key_7];
+			[self handleKeyPressesPoly:event keyToCheck:key_8];
+		}
+	}else {
+		if (event.allTouches.count == 1) {
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_1];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_2];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_3];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_4];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_5];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_6];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_7];
+			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_8];
+		}
+	}
+
+	//handle instruments
+	if (event.allTouches.count == 1) {
+		[self handleInstrumentState:[touches anyObject]];
+		[self handleModeState:[touches anyObject]];
+		[self handleMusicKeyState:[touches anyObject]];
+
 	}
 }
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
