@@ -13,6 +13,99 @@
 
 @end
 
+static SharedMusicInstrument currentInstrument;
+static SharedMusicKey currentKey;
+static SharedMusicMode currentMode;
+static RecordingState currentRecordingState;
+
+//assign an outlet to our object
+static UIImageView * backgroundView;
+static UIView *controlView;
+static UIView *instrumentSelection;
+static UIImageView * instrumentBG;
+static UIImageView * advControlBG;
+
+static UIImageView * key_1;
+static UIImageView * key_2;
+static UIImageView * key_3;
+static UIImageView * key_4;
+static UIImageView * key_5;
+static UIImageView * key_6;
+static UIImageView * key_7;
+static UIImageView * key_8;
+
+static UIImage * key_1_defaultBG;
+static UIImage * key_2_defaultBG;
+static UIImage * key_3_defaultBG;
+static UIImage * key_4_defaultBG;
+static UIImage * key_5_defaultBG;
+static UIImage * key_6_defaultBG;
+static UIImage * key_7_defaultBG;
+static UIImage * key_8_defaultBG;
+
+static UIImage * key_1_selBG;
+static UIImage * key_2_selBG;
+static UIImage * key_3_selBG;
+static UIImage * key_4_selBG;
+static UIImage * key_5_selBG;
+static UIImage * key_6_selBG;
+static UIImage * key_7_selBG;
+static UIImage * key_8_selBG;
+
+static UIImage * inst_1_u;
+static UIImage * inst_2_u;
+static UIImage * inst_3_u;
+static UIImage * inst_4_u;
+
+static UIImage * inst_1_s;
+static UIImage * inst_2_s;
+static UIImage * inst_3_s;
+static UIImage * inst_4_s;
+
+static UIImageView * inst_1;
+static UIImageView * inst_2;
+static UIImageView * inst_3;
+static UIImageView * inst_4;
+
+static UIImage * key_c_u;
+static UIImage * key_c_s;
+static UIImage * key_f_u;
+static UIImage * key_f_s;
+static UIImage * key_g_u;
+static UIImage * key_g_s;
+
+static UIImage * mode_1_u;
+static UIImage * mode_1_s;
+static UIImage * mode_2_u;
+static UIImage * mode_2_s;
+static UIImage * mode_3_u;
+static UIImage * mode_3_s;
+
+static UIImage * rec_u;
+static UIImage * rec_s;
+static UIImage * play_u;
+static UIImage * play_s;
+
+static UIImageView * musickey_1;
+static UIImageView * musickey_2;
+static UIImageView * musickey_3;
+
+static UIImageView * mode_1;
+static UIImageView * mode_2;
+static UIImageView * mode_3;
+
+static UIImageView * record;
+static UIImageView * play;
+
+static bool key_1_state;
+static bool key_2_state;
+static bool key_3_state;
+static bool key_4_state;
+static bool key_5_state;
+static bool key_6_state;
+static bool key_7_state;
+static bool key_8_state;
+
 @implementation ViewController
 
 - (void)viewDidLoad
@@ -23,6 +116,7 @@
 	currentInstrument = piano;
 	currentKey = CMajor;
 	currentMode = single;
+	currentRecordingState = idle;
 	
 	key_1_state = false;
 	key_2_state = false;
@@ -32,6 +126,9 @@
 	key_6_state = false;
 	key_7_state = false;
 	key_8_state = false;
+
+	sharedmusic = [SharedMusic alloc];
+	[sharedmusic configureRecording];
 
 	self.view.multipleTouchEnabled = YES;
 	self.view.exclusiveTouch = NO;
@@ -44,13 +141,13 @@
 	backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
 	[backgroundView setImage:[UIImage imageNamed:@"background.png"]];
 
-	controlView = [[UIView alloc] initWithFrame:CGRectMake(0, -220, 1024, 380)];
+	controlView = [[UIView alloc] initWithFrame:CGRectMake(0, -380, 1024, 380)];
 	[controlView setBackgroundColor:[UIColor clearColor]];
 
 	advControlBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 380)];
 	[advControlBG setImage:[UIImage imageNamed:@"advMenu.png"]];
 
-	instrumentSelection = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1024, 220)];
+	instrumentSelection = [[UIView alloc] initWithFrame:CGRectMake(0, -220, 1024, 220)];
 	[instrumentSelection setBackgroundColor:[UIColor clearColor]];
 
 	instrumentBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 220)];
@@ -170,7 +267,7 @@
 	[advControlBG addSubview:mode_3];
 
 	rec_u = [UIImage imageNamed:@"mic_rec_u.png"];
-	rec_s = [UIImage imageNamed:@"mic_mic_rec_s.png"];
+	rec_s = [UIImage imageNamed:@"mic_rec_s.png"];
 	play_u = [UIImage imageNamed:@"mic_play_u.png"];
 	play_s = [UIImage imageNamed:@"mic_play_s.png"];
 
@@ -203,9 +300,6 @@
 	doubleTapScreen.numberOfTapsRequired = 2;
 	doubleTapScreen.numberOfTouchesRequired = 3;
 	[[self view] addGestureRecognizer:doubleTapScreen];
-
-	[self showAdcancedMenu];
-	advancedmenushowing = true;
 }
 
 - (void)didReceiveMemoryWarning
@@ -278,112 +372,112 @@
 	key_1_state = true;
 	[key_1 setImage:key_1_selBG];
 	[key_1 setNeedsDisplay];
-	[SharedMusic NoteOn:1];
+	[sharedmusic NoteOn:1];
 }
 - (void)key_1_released {
 	NSLog(@"Key 1 up.");
 	key_1_state = false;
 	[key_1 setImage:key_1_defaultBG];
 	[key_1 setNeedsDisplay];
-	[SharedMusic NoteOff:1];
+	[sharedmusic NoteOff:1];
 }
 - (void)key_2_pressed {
 	NSLog(@"Key 2 down.");
 	key_2_state = true;
 	[key_2 setImage:key_2_selBG];
 	[key_2 setNeedsDisplay];
-	[SharedMusic NoteOn:2];
+	[sharedmusic NoteOn:2];
 }
 - (void)key_2_released {
 	NSLog(@"Key 2 up.");
 	key_2_state = false;
 	[key_2 setImage:key_2_defaultBG];
 	[key_2 setNeedsDisplay];
-	[SharedMusic NoteOff:2];
+	[sharedmusic NoteOff:2];
 }
 - (void)key_3_pressed {
 	NSLog(@"Key 3 down.");
 	key_3_state = true;
 	[key_3 setImage:key_3_selBG];
 	[key_3 setNeedsDisplay];
-	[SharedMusic NoteOn:3];
+	[sharedmusic NoteOn:3];
 }
 - (void)key_3_released {
 	NSLog(@"Key 3 up.");
 	key_3_state = false;
 	[key_3 setImage:key_3_defaultBG];
 	[key_3 setNeedsDisplay];
-	[SharedMusic NoteOff:3];
+	[sharedmusic NoteOff:3];
 }
 - (void)key_4_pressed {
 	NSLog(@"Key 4 down.");
 	key_4_state = true;
 	[key_4 setImage:key_4_selBG];
 	[key_4 setNeedsDisplay];
-	[SharedMusic NoteOn:4];
+	[sharedmusic NoteOn:4];
 }
 - (void)key_4_released {
 	NSLog(@"Key 4 up.");
 	key_4_state = false;
 	[key_4 setImage:key_4_defaultBG];
 	[key_4 setNeedsDisplay];
-	[SharedMusic NoteOff:4];
+	[sharedmusic NoteOff:4];
 }
 - (void)key_5_pressed {
 	NSLog(@"Key 5 down.");
 	key_5_state = true;
 	[key_5 setImage:key_5_selBG];
 	[key_5 setNeedsDisplay];
-	[SharedMusic NoteOn:5];
+	[sharedmusic NoteOn:5];
 }
 - (void)key_5_released {
 	NSLog(@"Key 5 up.");
 	key_5_state = false;
 	[key_5 setImage:key_5_defaultBG];
 	[key_5 setNeedsDisplay];
-	[SharedMusic NoteOff:5];
+	[sharedmusic NoteOff:5];
 }
 - (void)key_6_pressed {
 	NSLog(@"Key 6 down.");
 	key_6_state = true;
 	[key_6 setImage:key_6_selBG];
 	[key_6 setNeedsDisplay];
-	[SharedMusic NoteOn:6];
+	[sharedmusic NoteOn:6];
 }
 - (void)key_6_released {
 	NSLog(@"Key 6 up.");
 	key_6_state = false;
 	[key_6 setImage:key_6_defaultBG];
 	[key_6 setNeedsDisplay];
-	[SharedMusic NoteOff:6];
+	[sharedmusic NoteOff:6];
 }
 - (void)key_7_pressed {
 	NSLog(@"Key 7 down.");
 	key_7_state = true;
 	[key_7 setImage:key_7_selBG];
 	[key_7 setNeedsDisplay];
-	[SharedMusic NoteOn:7];
+	[sharedmusic NoteOn:7];
 }
 - (void)key_7_released {
 	NSLog(@"Key 7 up.");
 	key_7_state = false;
 	[key_7 setImage:key_7_defaultBG];
 	[key_7 setNeedsDisplay];
-	[SharedMusic NoteOff:7];
+	[sharedmusic NoteOff:7];
 }
 - (void)key_8_pressed {
 	NSLog(@"Key 8 down.");
 	key_8_state = true;
 	[key_8 setImage:key_8_selBG];
 	[key_8 setNeedsDisplay];
-	[SharedMusic NoteOn:8];
+	[sharedmusic NoteOn:8];
 }
 - (void)key_8_released {
 	NSLog(@"Key 8 up.");
 	key_8_state = false;
 	[key_8 setImage:key_8_defaultBG];
 	[key_8 setNeedsDisplay];
-	[SharedMusic NoteOff:8];
+	[sharedmusic NoteOff:8];
 }
 -(void)handlePianoKeyReleases:(UITouch *)touches {
 	if (key_1_state && CGRectContainsPoint(key_1.frame, [touches locationInView:backgroundView])) {
@@ -469,6 +563,7 @@
 	[self key_8_released];
 }
 -(void) setCurrentInstrument:(SharedMusicInstrument)inst {
+	[sharedmusic selectInstrument:inst];
 	currentInstrument = inst;
 	if (inst == piano) {
 		NSLog(@"Setting instrument to Piano...");
@@ -496,13 +591,6 @@
 		[inst_4 setImage:inst_4_s];
 	}
 }
-
--(void)handleModeState:(UITouch *)touch {
-	if (currentMode!=single && CGRectContainsPoint(mode_1.frame, [touch locationInView:advControlBG])) [self setCurrentMode:single];
-	if (currentMode!=chord && CGRectContainsPoint(mode_2.frame, [touch locationInView:advControlBG])) [self setCurrentMode:chord];
-	if (currentMode!=arpegiated && CGRectContainsPoint(mode_3.frame, [touch locationInView:advControlBG])) [self setCurrentMode:arpegiated];
-}
-
 -(void)setCurrentMode:(SharedMusicMode)mode {
 	currentMode = mode;
 	if (mode == single) {
@@ -510,25 +598,21 @@
 		[mode_1 setImage:mode_1_s];
 		[mode_2 setImage:mode_2_u];
 		[mode_3 setImage:mode_3_u];
+		[sharedmusic selectMode:single];
 	} else if (mode == chord) {
 		NSLog(@"Setting mode to Chord...");
 		[mode_1 setImage:mode_1_u];
 		[mode_2 setImage:mode_2_s];
 		[mode_3 setImage:mode_3_u];
+		[sharedmusic selectMode:chord];
 	} else if (mode == arpegiated) {
 		NSLog(@"Setting mode to Arpegiated...");
 		[mode_1 setImage:mode_1_u];
 		[mode_2 setImage:mode_2_u];
 		[mode_3 setImage:mode_3_s];
+		[sharedmusic selectMode:arpegiated];
 	}
 }
--(void)handleInstrumentState:(UITouch *)touch {
-	if (currentInstrument!=piano && CGRectContainsPoint(inst_1.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:piano];
-	if (currentInstrument!=strings && CGRectContainsPoint(inst_2.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:strings];
-	if (currentInstrument!=bells && CGRectContainsPoint(inst_3.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:bells];
-	if (currentInstrument!=horn && CGRectContainsPoint(inst_4.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:horn];
-}
-
 -(void)setCurrentKey:(SharedMusicKey)key {
 	currentKey = key;
 	if (key == CMajor) {
@@ -536,22 +620,86 @@
 		[musickey_1 setImage:key_c_s];
 		[musickey_2 setImage:key_f_u];
 		[musickey_3 setImage:key_g_u];
+		[sharedmusic selectKey:CMajor];
 	} else if (key == FMajor) {
 		NSLog(@"Setting key to F Major...");
 		[musickey_1 setImage:key_c_u];
 		[musickey_2 setImage:key_f_s];
 		[musickey_3 setImage:key_g_u];
+		[sharedmusic selectKey:FMajor];
 	} else if (key == GMajor) {
 		NSLog(@"Setting key to G Major...");
 		[musickey_1 setImage:key_c_u];
 		[musickey_2 setImage:key_f_u];
 		[musickey_3 setImage:key_g_s];
+		[sharedmusic selectKey:GMajor];
 	}
+}
++(void)setRecordingState:(RecordingState)state {
+	currentRecordingState = state;
+	if (state == idle) {
+		NSLog(@"Returning to idle recording state");
+		[record setImage:rec_u];
+		[play setImage:play_u];
+	} else if (state == recording) {
+		NSLog(@"Entering recording state...");
+		[record setImage:rec_s];
+		[play setImage:play_u];
+	} else if (state == playback) {
+		NSLog(@"Entering playback state...");
+		[record setImage:rec_u];
+		[play setImage:play_s];
+	}
+}
+
+-(void)handleModeState:(UITouch *)touch {
+	if (currentMode!=single && CGRectContainsPoint(mode_1.frame, [touch locationInView:advControlBG])) [self setCurrentMode:single];
+	if (currentMode!=chord && CGRectContainsPoint(mode_2.frame, [touch locationInView:advControlBG])) [self setCurrentMode:chord];
+	if (currentMode!=arpegiated && CGRectContainsPoint(mode_3.frame, [touch locationInView:advControlBG])) [self setCurrentMode:arpegiated];
+}
+-(void)handleInstrumentState:(UITouch *)touch {
+	if (currentInstrument!=piano && CGRectContainsPoint(inst_1.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:piano];
+	if (currentInstrument!=strings && CGRectContainsPoint(inst_2.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:strings];
+	if (currentInstrument!=bells && CGRectContainsPoint(inst_3.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:bells];
+	if (currentInstrument!=horn && CGRectContainsPoint(inst_4.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:horn];
 }
 -(void)handleMusicKeyState:(UITouch *)touch {
 	if (currentKey!=CMajor && CGRectContainsPoint(musickey_1.frame, [touch locationInView:advControlBG])) [self setCurrentKey:CMajor];
 	if (currentKey!=FMajor && CGRectContainsPoint(musickey_2.frame, [touch locationInView:advControlBG])) [self setCurrentKey:FMajor];
 	if (currentKey!=GMajor && CGRectContainsPoint(musickey_3.frame, [touch locationInView:advControlBG])) [self setCurrentKey:GMajor];
+}
+-(void)handleMicButtons:(UITouch *)touch {
+	if (CGRectContainsPoint(record.frame, [touch locationInView:advControlBG])) {
+		if (currentRecordingState == idle) {
+			//Start recording
+			[ViewController setRecordingState:recording];
+			[sharedmusic startRecording];
+		} else if (currentRecordingState == recording) {
+			//Stop recording and enter idle
+			[ViewController setRecordingState:idle];
+			[sharedmusic stopRecording];
+		} else if (currentRecordingState == playback) {
+			//stop playback and enter recording
+			[ViewController setRecordingState:recording];
+			[sharedmusic stopPlayback];
+			[sharedmusic startRecording];
+		}
+	} else if (CGRectContainsPoint(play.frame, [touch locationInView:advControlBG])) {
+		if (currentRecordingState == idle) {
+			//start playback
+			[ViewController setRecordingState:playback];
+			[sharedmusic startPlayback];
+		} else if (currentRecordingState == recording) {
+			//stop recording and enter playback
+			[ViewController setRecordingState:playback];
+			[sharedmusic stopRecording];
+			[sharedmusic startPlayback];
+		} else if (currentRecordingState == playback) {
+			//stop playback and enter idle
+			[ViewController setRecordingState:idle];
+			[sharedmusic stopPlayback];
+		}
+	}
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -578,6 +726,9 @@
 			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_8];
 		}
 	}
+}
++(void)clearRecordingState {
+	[ViewController setRecordingState:idle];
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	if (currentMode == single) {
@@ -609,7 +760,7 @@
 		[self handleInstrumentState:[touches anyObject]];
 		[self handleModeState:[touches anyObject]];
 		[self handleMusicKeyState:[touches anyObject]];
-
+		[self handleMicButtons:[touches anyObject]];
 	}
 }
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {

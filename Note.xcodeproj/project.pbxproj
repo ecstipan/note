@@ -49,6 +49,7 @@
 		733A361616D9730600AC613B /* mode_2_u.png in Resources */ = {isa = PBXBuildFile; fileRef = 733A360616D9730600AC613B /* mode_2_u.png */; };
 		733A361716D9730600AC613B /* mode_3_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 733A360716D9730600AC613B /* mode_3_s.png */; };
 		733A361816D9730600AC613B /* mode_3_u.png in Resources */ = {isa = PBXBuildFile; fileRef = 733A360816D9730600AC613B /* mode_3_u.png */; };
+		733A361A16D9916400AC613B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 733A361916D9916400AC613B /* AVFoundation.framework */; };
 		73C4574316D4796500F8A57A /* SharedMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C4574216D4796500F8A57A /* SharedMusic.m */; };
 		73DDD62A16D222F2005E17BD /* instrumentMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DDD62916D222F2005E17BD /* instrumentMenu.png */; };
 		73DDD63D16D30A79005E17BD /* key_1_def.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DDD62D16D30A77005E17BD /* key_1_def.png */; };
@@ -134,6 +135,7 @@
 		733A360616D9730600AC613B /* mode_2_u.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_2_u.png; sourceTree = "<group>"; };
 		733A360716D9730600AC613B /* mode_3_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_3_s.png; sourceTree = "<group>"; };
 		733A360816D9730600AC613B /* mode_3_u.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_3_u.png; sourceTree = "<group>"; };
+		733A361916D9916400AC613B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		73C4574116D4796500F8A57A /* SharedMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedMusic.h; sourceTree = "<group>"; };
 		73C4574216D4796500F8A57A /* SharedMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedMusic.m; sourceTree = "<group>"; };
 		73DDD62916D222F2005E17BD /* instrumentMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instrumentMenu.png; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				733A361A16D9916400AC613B /* AVFoundation.framework in Frameworks */,
 				7319F3E116C0DB420019A497 /* CoreText.framework in Frameworks */,
 				7319F3DF16C0DB1B0019A497 /* CoreAudio.framework in Frameworks */,
 				7319F3DD16C0DB140019A497 /* AudioToolbox.framework in Frameworks */,
@@ -191,6 +194,7 @@
 		7319F39516C0DAC00019A497 = {
 			isa = PBXGroup;
 			children = (
+				733A361916D9916400AC613B /* AVFoundation.framework */,
 				73FDB55A16C1087700BE9096 /* icon_s.png */,
 				73FDB55816C1084B00BE9096 /* icon.png */,
 				73FDB55616C106EE00BE9096 /* Default-Landscape@2x~ipad.png */,
@@ -229,23 +233,25 @@
 			isa = PBXGroup;
 			children = (
 				7319F3B016C0DAC00019A497 /* AppDelegate.h */,
-				73FDB55016C1024D00BE9096 /* Default-Portrait~ipad.png */,
-				73FDB55216C1025900BE9096 /* Default-Landscape~ipad.png */,
 				7319F3B116C0DAC00019A497 /* AppDelegate.m */,
-				7319F3B916C0DAC00019A497 /* MainStoryboard.storyboard */,
-				73DDD62916D222F2005E17BD /* instrumentMenu.png */,
 				7319F3BC16C0DAC00019A497 /* ViewController.h */,
 				7319F3BD16C0DAC00019A497 /* ViewController.m */,
+				73C4574116D4796500F8A57A /* SharedMusic.h */,
+				73C4574216D4796500F8A57A /* SharedMusic.m */,
+				7319F3B916C0DAC00019A497 /* MainStoryboard.storyboard */,
 				733A35E516D88F7B00AC613B /* inst_4_s.png */,
 				733A35F516D8CBE300AC613B /* advMenu.png */,
 				733A35F616D8CBE300AC613B /* background.png */,
 				733A35E616D88F7B00AC613B /* inst_4_u.png */,
 				733A35F916D9730600AC613B /* key_c_s.png */,
+				73DDD62916D222F2005E17BD /* instrumentMenu.png */,
 				733A35FA16D9730600AC613B /* key_c_u.png */,
 				733A35FB16D9730600AC613B /* key_f_s.png */,
 				733A35FC16D9730600AC613B /* key_f_u.png */,
 				733A35FD16D9730600AC613B /* key_g_s.png */,
 				733A35FE16D9730600AC613B /* key_g_u.png */,
+				73FDB55016C1024D00BE9096 /* Default-Portrait~ipad.png */,
+				73FDB55216C1025900BE9096 /* Default-Landscape~ipad.png */,
 				733A35FF16D9730600AC613B /* mic_play_s.png */,
 				733A360016D9730600AC613B /* mic_play_u.png */,
 				733A360116D9730600AC613B /* mic_rec_s.png */,
@@ -279,8 +285,6 @@
 				73DDD63B16D30A78005E17BD /* key_8_def.png */,
 				73DDD63C16D30A79005E17BD /* key_8_sel.png */,
 				7319F3A816C0DAC00019A497 /* Supporting Files */,
-				73C4574116D4796500F8A57A /* SharedMusic.h */,
-				73C4574216D4796500F8A57A /* SharedMusic.m */,
 			);
 			path = Note;
 			sourceTree = "<group>";
