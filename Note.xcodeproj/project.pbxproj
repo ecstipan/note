@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A6B005616D47EAC008A8335 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6B005516D47EAC008A8335 /* AVFoundation.framework */; };
+		3A6B005916D4803C008A8335 /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B005716D4803C008A8335 /* 1.wav */; };
+		3A6B005A16D4803C008A8335 /* 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B005816D4803C008A8335 /* 2.wav */; };
 		7319F3A216C0DAC00019A497 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7319F3A116C0DAC00019A497 /* UIKit.framework */; };
 		7319F3A416C0DAC00019A497 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7319F3A316C0DAC00019A497 /* Foundation.framework */; };
 		7319F3A616C0DAC00019A497 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7319F3A516C0DAC00019A497 /* CoreGraphics.framework */; };
@@ -62,6 +65,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A6B005516D47EAC008A8335 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3A6B005716D4803C008A8335 /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = "<group>"; };
+		3A6B005816D4803C008A8335 /* 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2.wav; sourceTree = "<group>"; };
 		7319F39E16C0DAC00019A497 /* Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7319F3A116C0DAC00019A497 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7319F3A316C0DAC00019A497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -118,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6B005616D47EAC008A8335 /* AVFoundation.framework in Frameworks */,
 				7319F3E116C0DB420019A497 /* CoreText.framework in Frameworks */,
 				7319F3DF16C0DB1B0019A497 /* CoreAudio.framework in Frameworks */,
 				7319F3DD16C0DB140019A497 /* AudioToolbox.framework in Frameworks */,
@@ -169,6 +176,7 @@
 		7319F3A016C0DAC00019A497 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A6B005516D47EAC008A8335 /* AVFoundation.framework */,
 				7319F3A116C0DAC00019A497 /* UIKit.framework */,
 				7319F3A316C0DAC00019A497 /* Foundation.framework */,
 				7319F3A516C0DAC00019A497 /* CoreGraphics.framework */,
@@ -216,6 +224,8 @@
 		7319F3A816C0DAC00019A497 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A6B005716D4803C008A8335 /* 1.wav */,
+				3A6B005816D4803C008A8335 /* 2.wav */,
 				7319F3A916C0DAC00019A497 /* Note-Info.plist */,
 				7319F3AA16C0DAC00019A497 /* InfoPlist.strings */,
 				7319F3AD16C0DAC00019A497 /* main.m */,
@@ -341,6 +351,8 @@
 				73DDD64A16D30A79005E17BD /* key_7_sel.png in Resources */,
 				73DDD64B16D30A79005E17BD /* key_8_def.png in Resources */,
 				73DDD64C16D30A79005E17BD /* key_8_sel.png in Resources */,
+				3A6B005916D4803C008A8335 /* 1.wav in Resources */,
+				3A6B005A16D4803C008A8335 /* 2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
