@@ -128,6 +128,7 @@ static bool key_8_state;
 	key_8_state = false;
 
 	sharedmusic = [SharedMusic alloc];
+
 	[sharedmusic configureRecording];
 
 	self.view.multipleTouchEnabled = YES;
@@ -727,9 +728,11 @@ static bool key_8_state;
 		}
 	}
 }
+
 +(void)clearRecordingState {
 	[ViewController setRecordingState:idle];
 }
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	if (currentMode == single) {
 		for (UITouch *touch in [event allTouches]) {
@@ -763,6 +766,7 @@ static bool key_8_state;
 		[self handleMicButtons:[touches anyObject]];
 	}
 }
+
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	for (UITouch *touch in [event allTouches]) {
 		[self handlePianoKeyReleases:touch];

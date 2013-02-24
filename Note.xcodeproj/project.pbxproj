@@ -50,6 +50,8 @@
 		733A361716D9730600AC613B /* mode_3_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 733A360716D9730600AC613B /* mode_3_s.png */; };
 		733A361816D9730600AC613B /* mode_3_u.png in Resources */ = {isa = PBXBuildFile; fileRef = 733A360816D9730600AC613B /* mode_3_u.png */; };
 		733A361A16D9916400AC613B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 733A361916D9916400AC613B /* AVFoundation.framework */; };
+		733A361C16DAD8A500AC613B /* test.wav in Resources */ = {isa = PBXBuildFile; fileRef = 733A361B16DAD8A500AC613B /* test.wav */; };
+		733A361E16DADABD00AC613B /* test2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 733A361D16DADABD00AC613B /* test2.wav */; };
 		73C4574316D4796500F8A57A /* SharedMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C4574216D4796500F8A57A /* SharedMusic.m */; };
 		73DDD62A16D222F2005E17BD /* instrumentMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DDD62916D222F2005E17BD /* instrumentMenu.png */; };
 		73DDD63D16D30A79005E17BD /* key_1_def.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DDD62D16D30A77005E17BD /* key_1_def.png */; };
@@ -136,6 +138,8 @@
 		733A360716D9730600AC613B /* mode_3_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_3_s.png; sourceTree = "<group>"; };
 		733A360816D9730600AC613B /* mode_3_u.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode_3_u.png; sourceTree = "<group>"; };
 		733A361916D9916400AC613B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		733A361B16DAD8A500AC613B /* test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = test.wav; path = ../../../../Desktop/test.wav; sourceTree = "<group>"; };
+		733A361D16DADABD00AC613B /* test2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = test2.wav; path = ../../../../Desktop/test2.wav; sourceTree = "<group>"; };
 		73C4574116D4796500F8A57A /* SharedMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedMusic.h; sourceTree = "<group>"; };
 		73C4574216D4796500F8A57A /* SharedMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedMusic.m; sourceTree = "<group>"; };
 		73DDD62916D222F2005E17BD /* instrumentMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instrumentMenu.png; sourceTree = "<group>"; };
@@ -195,10 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				733A361916D9916400AC613B /* AVFoundation.framework */,
-				73FDB55A16C1087700BE9096 /* icon_s.png */,
-				73FDB55816C1084B00BE9096 /* icon.png */,
-				73FDB55616C106EE00BE9096 /* Default-Landscape@2x~ipad.png */,
-				73FDB55416C106E600BE9096 /* Default-Portrait@2x~ipad.png */,
 				7319F3E016C0DB420019A497 /* CoreText.framework */,
 				7319F3DE16C0DB1B0019A497 /* CoreAudio.framework */,
 				7319F3DC16C0DB140019A497 /* AudioToolbox.framework */,
@@ -206,6 +206,10 @@
 				7319F3CB16C0DAC00019A497 /* NoteTests */,
 				7319F3A016C0DAC00019A497 /* Frameworks */,
 				7319F39F16C0DAC00019A497 /* Products */,
+				73FDB55A16C1087700BE9096 /* icon_s.png */,
+				73FDB55816C1084B00BE9096 /* icon.png */,
+				73FDB55616C106EE00BE9096 /* Default-Landscape@2x~ipad.png */,
+				73FDB55416C106E600BE9096 /* Default-Portrait@2x~ipad.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -232,9 +236,11 @@
 		7319F3A716C0DAC00019A497 /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				733A361B16DAD8A500AC613B /* test.wav */,
 				7319F3B016C0DAC00019A497 /* AppDelegate.h */,
 				7319F3B116C0DAC00019A497 /* AppDelegate.m */,
 				7319F3BC16C0DAC00019A497 /* ViewController.h */,
+				733A361D16DADABD00AC613B /* test2.wav */,
 				7319F3BD16C0DAC00019A497 /* ViewController.m */,
 				73C4574116D4796500F8A57A /* SharedMusic.h */,
 				73C4574216D4796500F8A57A /* SharedMusic.m */,
@@ -441,6 +447,8 @@
 				733A361616D9730600AC613B /* mode_2_u.png in Resources */,
 				733A361716D9730600AC613B /* mode_3_s.png in Resources */,
 				733A361816D9730600AC613B /* mode_3_u.png in Resources */,
+				733A361C16DAD8A500AC613B /* test.wav in Resources */,
+				733A361E16DADABD00AC613B /* test2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SharedMusic.h"
 #import "ViewController.h"
+#import <CoreAudio/CoreAudioTypes.h>
 #import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface SharedMusic () {
 
@@ -21,11 +23,16 @@ SharedMusicInstrument MusicInstrument = piano;
 SharedMusicKey MusicKey = CMajor;
 SharedMusicMode MusicMode = single;
 
+SystemSoundID globalSounds[4][3][3][8]; //[instrument][mode][key][note]
 
 @implementation SharedMusic
 
 	- (void)NoteOn:(NSInteger)key_number {
 		NSLog(@"AUDIO: NOTE ON %i", key_number);
+		if (key_number<4)
+			AudioServicesPlaySystemSound(globalSounds[0][0][0][0]);
+		else
+			AudioServicesPlaySystemSound(globalSounds[0][0][0][1]);
 	}
 
 
@@ -94,12 +101,21 @@ SharedMusicMode MusicMode = single;
 		} else {
 			[audioRecorder prepareToRecord];
 		}
+		
+		NSString *pewPewPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"wav"];
+		NSURL *pewPewURL = [NSURL fileURLWithPath:pewPewPath];
+		AudioServicesCreateSystemSoundID((CFURLRef)pewPewURL, &globalSounds[0][0][0][0]);
+
+		pewPewPath = [[NSBundle mainBundle] pathForResource:@"test2" ofType:@"wav"];
+		pewPewURL = [NSURL fileURLWithPath:pewPewPath];
+		AudioServicesCreateSystemSoundID((CFURLRef)pewPewURL, &globalSounds[0][0][0][1]);
 	}
 
 	//Voice Recording
 	- (void)startRecording {
 		NSLog(@"AUDIO: Start Recording...");
-		[audioRecorder record];
+		[audioRecorder recordForDuration:10.00];
+		[NSTimer scheduledTimerWithTimeInterval:10.00 target:self selector:@selector(forceStopRecord) userInfo:nil repeats:NO];
 	}
 	- (void)stopRecording {
 		[audioRecorder stop];
@@ -124,6 +140,10 @@ SharedMusicMode MusicMode = single;
 	- (void)stopPlayback {
 		[audioPlayer stop];
 	}
+	- (void)forceStopRecord {
+		[audioRecorder stop];
+		[ViewController clearRecordingState];
+	}
 
 	-(void)audioPlayerDidFinishPlaying:
 	(AVAudioPlayer *)player successfully:(BOOL)flag
@@ -136,7 +156,7 @@ SharedMusicMode MusicMode = single;
 	}
 	-(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 	{
-		
+		[ViewController clearRecordingState];
 	}
 	-(void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError *)error
 	{
