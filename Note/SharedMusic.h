@@ -18,22 +18,22 @@
 	
 }
 	typedef enum {
-		CMajor = 1,
-		FMajor = 2,
-		GMajor = 3
+		CMajor,
+		FMajor,
+		GMajor
 	} SharedMusicKey;
 
 	typedef enum {
-		single = 1,
-		chord = 2,
-		arpegiated = 3
+		single,
+		chord,
+		arpegiated
 	} SharedMusicMode;
 
 	typedef enum {
-		piano = 1,
-		strings = 2,
-		bells = 3,
-		horn = 4
+		piano,
+		strings,
+		bells,
+		horn
 	} SharedMusicInstrument;
 
 	typedef enum {
@@ -54,9 +54,11 @@
 	- (SharedMusicMode)getMode;
 
 	- (void) configureRecording;
+	- (void) initializeSampleLibrary;
 
 	- (void)startRecording;
 	- (void)stopRecording;
 	- (void)startPlayback;
 	- (void)stopPlayback;
+	- (void)setDelegateController:(UIViewController *)control;
 @end

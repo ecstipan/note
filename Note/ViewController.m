@@ -9,107 +9,229 @@
 #import "ViewController.h"
 #import "SharedMusic.h"
 
-@interface ViewController ()
+@interface ViewController () {
+	SharedMusicInstrument currentInstrument;
+	SharedMusicKey currentKey;
+	SharedMusicMode currentMode;
+	RecordingState currentRecordingState;
+
+	SharedMusic * sharedmusic;
+
+	//assign an outlet to our object
+	UIImageView * backgroundView;
+	UIView *controlView;
+	UIView *instrumentSelection;
+	UIImageView * instrumentBG;
+	UIImageView * advControlBG;
+
+	UIImageView * key_1;
+	UIImageView * key_2;
+	UIImageView * key_3;
+	UIImageView * key_4;
+	UIImageView * key_5;
+	UIImageView * key_6;
+	UIImageView * key_7;
+	UIImageView * key_8;
+
+	UIImage * key_1_defaultBG;
+	UIImage * key_2_defaultBG;
+	UIImage * key_3_defaultBG;
+	UIImage * key_4_defaultBG;
+	UIImage * key_5_defaultBG;
+	UIImage * key_6_defaultBG;
+	UIImage * key_7_defaultBG;
+	UIImage * key_8_defaultBG;
+
+	UIImage * key_1_selBG;
+	UIImage * key_2_selBG;
+	UIImage * key_3_selBG;
+	UIImage * key_4_selBG;
+	UIImage * key_5_selBG;
+	UIImage * key_6_selBG;
+	UIImage * key_7_selBG;
+	UIImage * key_8_selBG;
+
+	UIImage * inst_1_u;
+	UIImage * inst_2_u;
+	UIImage * inst_3_u;
+	UIImage * inst_4_u;
+
+	UIImage * inst_1_s;
+	UIImage * inst_2_s;
+	UIImage * inst_3_s;
+	UIImage * inst_4_s;
+
+	UIImageView * inst_1;
+	UIImageView * inst_2;
+	UIImageView * inst_3;
+	UIImageView * inst_4;
+
+	UIImage * key_c_u;
+	UIImage * key_c_s;
+	UIImage * key_f_u;
+	UIImage * key_f_s;
+	UIImage * key_g_u;
+	UIImage * key_g_s;
+
+	UIImage * mode_1_u;
+	UIImage * mode_1_s;
+	UIImage * mode_2_u;
+	UIImage * mode_2_s;
+	UIImage * mode_3_u;
+	UIImage * mode_3_s;
+
+	UIImage * rec_u;
+	UIImage * rec_s;
+	UIImage * play_u;
+	UIImage * play_s;
+
+	UIImageView * musickey_1;
+	UIImageView * musickey_2;
+	UIImageView * musickey_3;
+
+	UIImageView * mode_1;
+	UIImageView * mode_2;
+	UIImageView * mode_3;
+
+	UIImageView * record;
+	UIImageView * play;
+
+	bool key_1_state;
+	bool key_2_state;
+	bool key_3_state;
+	bool key_4_state;
+	bool key_5_state;
+	bool key_6_state;
+	bool key_7_state;
+	bool key_8_state;
+}
+
+@property (nonatomic, retain) UIImage * key_1_defaultBG;
+@property (nonatomic, retain) UIImage * key_2_defaultBG;
+@property (nonatomic, retain) UIImage * key_3_defaultBG;
+@property (nonatomic, retain) UIImage * key_4_defaultBG;
+@property (nonatomic, retain) UIImage * key_5_defaultBG;
+@property (nonatomic, retain) UIImage * key_6_defaultBG;
+@property (nonatomic, retain) UIImage * key_7_defaultBG;
+@property (nonatomic, retain) UIImage * key_8_defaultBG;
+
+@property (nonatomic, retain) UIImage * key_1_selBG;
+@property (nonatomic, retain) UIImage * key_2_selBG;
+@property (nonatomic, retain) UIImage * key_3_selBG;
+@property (nonatomic, retain) UIImage * key_4_selBG;
+@property (nonatomic, retain) UIImage * key_5_selBG;
+@property (nonatomic, retain) UIImage * key_6_selBG;
+@property (nonatomic, retain) UIImage * key_7_selBG;
+@property (nonatomic, retain) UIImage * key_8_selBG;
+
+@property (nonatomic, retain) UIImage * inst_1_u;
+@property (nonatomic, retain) UIImage * inst_2_u;
+@property (nonatomic, retain) UIImage * inst_3_u;
+@property (nonatomic, retain) UIImage * inst_4_u;
+
+@property (nonatomic, retain) UIImage * inst_1_s;
+@property (nonatomic, retain) UIImage * inst_2_s;
+@property (nonatomic, retain) UIImage * inst_3_s;
+@property (nonatomic, retain) UIImage * inst_4_s;
+
+@property (nonatomic, retain) UIImage * key_c_u;
+@property (nonatomic, retain) UIImage * key_c_s;
+@property (nonatomic, retain) UIImage * key_f_u;
+@property (nonatomic, retain) UIImage * key_f_s;
+@property (nonatomic, retain) UIImage * key_g_u;
+@property (nonatomic, retain) UIImage * key_g_s;
+
+@property (nonatomic, retain) UIImage * mode_1_u;
+@property (nonatomic, retain) UIImage * mode_1_s;
+@property (nonatomic, retain) UIImage * mode_2_u;
+@property (nonatomic, retain) UIImage * mode_2_s;
+@property (nonatomic, retain) UIImage * mode_3_u;
+@property (nonatomic, retain) UIImage * mode_3_s;
+
+@property (nonatomic, retain) UIImage * rec_u;
+@property (nonatomic, retain) UIImage * rec_s;
+@property (nonatomic, retain) UIImage * play_u;
+@property (nonatomic, retain) UIImage * play_s;
+
+@property (nonatomic, retain) SharedMusic * sharedmusic;
+
+@property (nonatomic, retain) UIImageView * key_1;
+@property (nonatomic, retain) UIImageView * key_2;
+@property (nonatomic, retain) UIImageView * key_3;
+@property (nonatomic, retain) UIImageView * key_4;
+@property (nonatomic, retain) UIImageView * key_5;
+@property (nonatomic, retain) UIImageView * key_6;
+@property (nonatomic, retain) UIImageView * key_7;
+@property (nonatomic, retain) UIImageView * key_8;
+
+@property (nonatomic, retain) UIImageView * backgroundView;
+@property (nonatomic, retain) UIImageView * instrumentBG;
+@property (nonatomic, retain) UIImageView * advControlBG;
 
 @end
 
-static SharedMusicInstrument currentInstrument;
-static SharedMusicKey currentKey;
-static SharedMusicMode currentMode;
-static RecordingState currentRecordingState;
-
-//assign an outlet to our object
-static UIImageView * backgroundView;
-static UIView *controlView;
-static UIView *instrumentSelection;
-static UIImageView * instrumentBG;
-static UIImageView * advControlBG;
-
-static UIImageView * key_1;
-static UIImageView * key_2;
-static UIImageView * key_3;
-static UIImageView * key_4;
-static UIImageView * key_5;
-static UIImageView * key_6;
-static UIImageView * key_7;
-static UIImageView * key_8;
-
-static UIImage * key_1_defaultBG;
-static UIImage * key_2_defaultBG;
-static UIImage * key_3_defaultBG;
-static UIImage * key_4_defaultBG;
-static UIImage * key_5_defaultBG;
-static UIImage * key_6_defaultBG;
-static UIImage * key_7_defaultBG;
-static UIImage * key_8_defaultBG;
-
-static UIImage * key_1_selBG;
-static UIImage * key_2_selBG;
-static UIImage * key_3_selBG;
-static UIImage * key_4_selBG;
-static UIImage * key_5_selBG;
-static UIImage * key_6_selBG;
-static UIImage * key_7_selBG;
-static UIImage * key_8_selBG;
-
-static UIImage * inst_1_u;
-static UIImage * inst_2_u;
-static UIImage * inst_3_u;
-static UIImage * inst_4_u;
-
-static UIImage * inst_1_s;
-static UIImage * inst_2_s;
-static UIImage * inst_3_s;
-static UIImage * inst_4_s;
-
-static UIImageView * inst_1;
-static UIImageView * inst_2;
-static UIImageView * inst_3;
-static UIImageView * inst_4;
-
-static UIImage * key_c_u;
-static UIImage * key_c_s;
-static UIImage * key_f_u;
-static UIImage * key_f_s;
-static UIImage * key_g_u;
-static UIImage * key_g_s;
-
-static UIImage * mode_1_u;
-static UIImage * mode_1_s;
-static UIImage * mode_2_u;
-static UIImage * mode_2_s;
-static UIImage * mode_3_u;
-static UIImage * mode_3_s;
-
-static UIImage * rec_u;
-static UIImage * rec_s;
-static UIImage * play_u;
-static UIImage * play_s;
-
-static UIImageView * musickey_1;
-static UIImageView * musickey_2;
-static UIImageView * musickey_3;
-
-static UIImageView * mode_1;
-static UIImageView * mode_2;
-static UIImageView * mode_3;
-
-static UIImageView * record;
-static UIImageView * play;
-
-static bool key_1_state;
-static bool key_2_state;
-static bool key_3_state;
-static bool key_4_state;
-static bool key_5_state;
-static bool key_6_state;
-static bool key_7_state;
-static bool key_8_state;
-
 @implementation ViewController
+@synthesize backgroundView;
+@synthesize instrumentBG;
+@synthesize advControlBG;
+
+@synthesize sharedmusic;
+@synthesize key_1_defaultBG;
+@synthesize key_1_selBG;
+@synthesize key_2_defaultBG;
+@synthesize key_2_selBG;
+@synthesize key_3_defaultBG;
+@synthesize key_3_selBG;
+@synthesize key_4_defaultBG;
+@synthesize key_4_selBG;
+@synthesize key_5_defaultBG;
+@synthesize key_5_selBG;
+@synthesize key_6_defaultBG;
+@synthesize key_6_selBG;
+@synthesize key_7_defaultBG;
+@synthesize key_7_selBG;
+@synthesize key_8_defaultBG;
+@synthesize key_8_selBG;
+@synthesize rec_s;
+@synthesize rec_u;
+@synthesize play_s;
+@synthesize play_u;
+@synthesize key_c_s;
+@synthesize key_c_u;
+@synthesize key_f_s;
+@synthesize key_f_u;
+@synthesize key_g_s;
+@synthesize key_g_u;
+@synthesize inst_1_s;
+@synthesize inst_1_u;
+@synthesize inst_2_s;
+@synthesize inst_2_u;
+@synthesize inst_3_s;
+@synthesize inst_3_u;
+@synthesize inst_4_s;
+@synthesize inst_4_u;
+@synthesize mode_1_s;
+@synthesize mode_1_u;
+@synthesize mode_2_s;
+@synthesize mode_2_u;
+@synthesize mode_3_s;
+@synthesize mode_3_u;
+
+@synthesize key_1;
+@synthesize key_2;
+@synthesize key_3;
+@synthesize key_4;
+@synthesize key_5;
+@synthesize key_6;
+@synthesize key_7;
+@synthesize key_8;
 
 - (void)viewDidLoad
 {
+	self.restorationIdentifier = @"pianoWindow";
+
+	NSLog(@"Initializing...");
+	
     [super viewDidLoad];
 	UIKeyOffset = 56;
 	UIInstOffset = 64;
@@ -117,7 +239,7 @@ static bool key_8_state;
 	currentKey = CMajor;
 	currentMode = single;
 	currentRecordingState = idle;
-	
+
 	key_1_state = false;
 	key_2_state = false;
 	key_3_state = false;  
@@ -127,9 +249,11 @@ static bool key_8_state;
 	key_7_state = false;
 	key_8_state = false;
 
-	sharedmusic = [SharedMusic alloc];
+	sharedmusic = [[SharedMusic alloc] retain];
 
 	[sharedmusic configureRecording];
+	[sharedmusic initializeSampleLibrary];
+	[sharedmusic setDelegateController:self];
 
 	self.view.multipleTouchEnabled = YES;
 	self.view.exclusiveTouch = NO;
@@ -139,48 +263,51 @@ static bool key_8_state;
 	// Do any additional setup after loading the view, typically from a nib.
 
 	//setup our background view
-	backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
+	backgroundView = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)] retain];
 	[backgroundView setImage:[UIImage imageNamed:@"background.png"]];
 
-	controlView = [[UIView alloc] initWithFrame:CGRectMake(0, -380, 1024, 380)];
+	controlView = [[[UIView alloc] initWithFrame:CGRectMake(0, -380, 1024, 380)] retain];
 	[controlView setBackgroundColor:[UIColor clearColor]];
 
-	advControlBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 380)];
+	advControlBG = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 380)] retain];
 	[advControlBG setImage:[UIImage imageNamed:@"advMenu.png"]];
 
-	instrumentSelection = [[UIView alloc] initWithFrame:CGRectMake(0, -220, 1024, 220)];
+	instrumentSelection = [[[UIView alloc] initWithFrame:CGRectMake(0, -220, 1024, 220)] retain];
 	[instrumentSelection setBackgroundColor:[UIColor clearColor]];
 
-	instrumentBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 220)];
+	instrumentBG = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 220)] retain];
 	[instrumentBG setImage:[UIImage imageNamed:@"instrumentMenu.png"]];
 
+	controlView.restorationIdentifier = @"controlView";
+	instrumentSelection.restorationIdentifier = @"instrumentSelection";
+
 	//Keys and their images
-	key_1_defaultBG = [UIImage imageNamed:@"key_1_def.png"];
-	key_2_defaultBG = [UIImage imageNamed:@"key_2_def.png"];
-	key_3_defaultBG = [UIImage imageNamed:@"key_3_def.png"];
-	key_4_defaultBG = [UIImage imageNamed:@"key_4_def.png"];
-	key_5_defaultBG = [UIImage imageNamed:@"key_5_def.png"];
-	key_6_defaultBG = [UIImage imageNamed:@"key_6_def.png"];
-	key_7_defaultBG = [UIImage imageNamed:@"key_7_def.png"];
-	key_8_defaultBG = [UIImage imageNamed:@"key_8_def.png"];
+	key_1_defaultBG = [[UIImage imageNamed:@"key_1_def.png"] retain];
+	key_2_defaultBG = [[UIImage imageNamed:@"key_2_def.png"] retain];
+	key_3_defaultBG = [[UIImage imageNamed:@"key_3_def.png"] retain];
+	key_4_defaultBG = [[UIImage imageNamed:@"key_4_def.png"] retain];
+	key_5_defaultBG = [[UIImage imageNamed:@"key_5_def.png"] retain];
+	key_6_defaultBG = [[UIImage imageNamed:@"key_6_def.png"] retain];
+	key_7_defaultBG = [[UIImage imageNamed:@"key_7_def.png"] retain];
+	key_8_defaultBG = [[UIImage imageNamed:@"key_8_def.png"] retain];
+	
+	key_1_selBG = [[UIImage imageNamed:@"key_1_sel.png"] retain];
+	key_2_selBG = [[UIImage imageNamed:@"key_2_sel.png"] retain];
+	key_3_selBG = [[UIImage imageNamed:@"key_3_sel.png"] retain];
+	key_4_selBG = [[UIImage imageNamed:@"key_4_sel.png"] retain];
+	key_5_selBG = [[UIImage imageNamed:@"key_5_sel.png"] retain];
+	key_6_selBG = [[UIImage imageNamed:@"key_6_sel.png"] retain];
+	key_7_selBG = [[UIImage imageNamed:@"key_7_sel.png"] retain];
+	key_8_selBG = [[UIImage imageNamed:@"key_8_sel.png"] retain];
 
-	key_1_selBG = [UIImage imageNamed:@"key_1_sel.png"];
-	key_2_selBG = [UIImage imageNamed:@"key_2_sel.png"];
-	key_3_selBG = [UIImage imageNamed:@"key_3_sel.png"];
-	key_4_selBG = [UIImage imageNamed:@"key_4_sel.png"];
-	key_5_selBG = [UIImage imageNamed:@"key_5_sel.png"];
-	key_6_selBG = [UIImage imageNamed:@"key_6_sel.png"];
-	key_7_selBG = [UIImage imageNamed:@"key_7_sel.png"];
-	key_8_selBG = [UIImage imageNamed:@"key_8_sel.png"];
-
-	inst_1_s = [UIImage imageNamed:@"inst_1_s.png"];
-	inst_2_s = [UIImage imageNamed:@"inst_2_s.png"];
-	inst_3_s = [UIImage imageNamed:@"inst_3_s.png"];
-	inst_4_s = [UIImage imageNamed:@"inst_4_s.png"];
-	inst_1_u = [UIImage imageNamed:@"inst_1_u.png"];
-	inst_2_u = [UIImage imageNamed:@"inst_2_u.png"];
-	inst_3_u = [UIImage imageNamed:@"inst_3_u.png"];
-	inst_4_u = [UIImage imageNamed:@"inst_4_u.png"];
+	inst_1_s = [[UIImage imageNamed:@"inst_1_s.png"] retain];
+	inst_2_s = [[UIImage imageNamed:@"inst_2_s.png"] retain];
+	inst_3_s = [[UIImage imageNamed:@"inst_3_s.png"] retain];
+	inst_4_s = [[UIImage imageNamed:@"inst_4_s.png"] retain];
+	inst_1_u = [[UIImage imageNamed:@"inst_1_u.png"] retain];
+	inst_2_u = [[UIImage imageNamed:@"inst_2_u.png"] retain];
+	inst_3_u = [[UIImage imageNamed:@"inst_3_u.png"] retain];
+	inst_4_u = [[UIImage imageNamed:@"inst_4_u.png"] retain];
 
 	inst_1 = [[UIImageView alloc] initWithFrame:CGRectMake(UIInstOffset+0, 8, 200, 190)];
 	[inst_1 setImage:inst_1_s];
@@ -230,12 +357,12 @@ static bool key_8_state;
 	[self.view addSubview:key_8];
 
 	//handle our advanced views
-	key_c_u = [UIImage imageNamed:@"key_c_u.png"];
-	key_c_s = [UIImage imageNamed:@"key_c_s.png"];
-	key_f_u = [UIImage imageNamed:@"key_f_u.png"];
-	key_f_s = [UIImage imageNamed:@"key_f_s.png"];
-	key_g_u = [UIImage imageNamed:@"key_g_u.png"];
-	key_g_s = [UIImage imageNamed:@"key_g_s.png"];
+	key_c_u = [[UIImage imageNamed:@"key_c_u.png"] retain];
+	key_c_s = [[UIImage imageNamed:@"key_c_s.png"] retain];
+	key_f_u = [[UIImage imageNamed:@"key_f_u.png"] retain];
+	key_f_s = [[UIImage imageNamed:@"key_f_s.png"] retain];
+	key_g_u = [[UIImage imageNamed:@"key_g_u.png"] retain];
+	key_g_s = [[UIImage imageNamed:@"key_g_s.png"] retain];
 	
 	musickey_1 = [[UIImageView alloc] initWithFrame:CGRectMake(570, 110, 90, 100)];
 	[musickey_1 setImage:key_c_s];
@@ -249,12 +376,12 @@ static bool key_8_state;
 	[advControlBG addSubview:musickey_3];
 
 
-	mode_1_u = [UIImage imageNamed:@"mode_1_u.png"];
-	mode_1_s = [UIImage imageNamed:@"mode_1_s.png"];
-	mode_2_u = [UIImage imageNamed:@"mode_2_u.png"];
-	mode_2_s = [UIImage imageNamed:@"mode_2_s.png"];
-	mode_3_u = [UIImage imageNamed:@"mode_3_u.png"];
-	mode_3_s = [UIImage imageNamed:@"mode_3_s.png"];
+	mode_1_u = [[UIImage imageNamed:@"mode_1_u.png"] retain];
+	mode_1_s = [[UIImage imageNamed:@"mode_1_s.png"] retain];
+	mode_2_u = [[UIImage imageNamed:@"mode_2_u.png"] retain];
+	mode_2_s = [[UIImage imageNamed:@"mode_2_s.png"] retain];
+	mode_3_u = [[UIImage imageNamed:@"mode_3_u.png"] retain];
+	mode_3_s = [[UIImage imageNamed:@"mode_3_s.png"] retain];
 
 	mode_1 = [[UIImageView alloc] initWithFrame:CGRectMake(44, 128, 112, 165)];
 	[mode_1 setImage:mode_1_s];
@@ -267,10 +394,10 @@ static bool key_8_state;
 	[advControlBG addSubview:mode_2];
 	[advControlBG addSubview:mode_3];
 
-	rec_u = [UIImage imageNamed:@"mic_rec_u.png"];
-	rec_s = [UIImage imageNamed:@"mic_rec_s.png"];
-	play_u = [UIImage imageNamed:@"mic_play_u.png"];
-	play_s = [UIImage imageNamed:@"mic_play_s.png"];
+	rec_u = [[UIImage imageNamed:@"mic_rec_u.png"] retain];
+	rec_s = [[UIImage imageNamed:@"mic_rec_s.png"] retain];
+	play_u = [[UIImage imageNamed:@"mic_play_u.png"] retain];
+	play_s = [[UIImage imageNamed:@"mic_play_s.png"] retain];
 
 	record = [[UIImageView alloc] initWithFrame:CGRectMake(800, 214, 64, 64)];
 	[record setImage:rec_u];
@@ -353,17 +480,17 @@ static bool key_8_state;
 }
 
 - (void)threeFingerSwipeUp:(UITapGestureRecognizer *)recognizer {
-    // Insert your own code to handle swipe left
+    // Insert your own code to handle swipe up
 	[self hideAdcancedMenu];
 }
 
 - (void)threeFingerSwipeDown:(UITapGestureRecognizer *)recognizer {
-    // Insert your own code to handle swipe right
+    // Insert your own code to handle swipe down
 	[self showAdcancedMenu];
 }
 
 - (void)doubleTapScreen:(UITapGestureRecognizer *)recognizer {
-    // Insert your own code to handle swipe right
+    // check to see if we're above the keyboard
 	if (advancedmenushowing) [self hideAdcancedMenu];
 	else [self showAdcancedMenu];
 }
@@ -636,7 +763,7 @@ static bool key_8_state;
 		[sharedmusic selectKey:GMajor];
 	}
 }
-+(void)setRecordingState:(RecordingState)state {
+-(void)setRecordingState:(RecordingState)state {
 	currentRecordingState = state;
 	if (state == idle) {
 		NSLog(@"Returning to idle recording state");
@@ -673,31 +800,31 @@ static bool key_8_state;
 	if (CGRectContainsPoint(record.frame, [touch locationInView:advControlBG])) {
 		if (currentRecordingState == idle) {
 			//Start recording
-			[ViewController setRecordingState:recording];
 			[sharedmusic startRecording];
+			[self setRecordingState:recording];
 		} else if (currentRecordingState == recording) {
 			//Stop recording and enter idle
-			[ViewController setRecordingState:idle];
 			[sharedmusic stopRecording];
+			[self setRecordingState:idle];
 		} else if (currentRecordingState == playback) {
 			//stop playback and enter recording
-			[ViewController setRecordingState:recording];
 			[sharedmusic stopPlayback];
 			[sharedmusic startRecording];
+			[self setRecordingState:recording];
 		}
 	} else if (CGRectContainsPoint(play.frame, [touch locationInView:advControlBG])) {
 		if (currentRecordingState == idle) {
 			//start playback
-			[ViewController setRecordingState:playback];
+			[self setRecordingState:playback];
 			[sharedmusic startPlayback];
 		} else if (currentRecordingState == recording) {
 			//stop recording and enter playback
-			[ViewController setRecordingState:playback];
+			[self setRecordingState:playback];
 			[sharedmusic stopRecording];
 			[sharedmusic startPlayback];
 		} else if (currentRecordingState == playback) {
 			//stop playback and enter idle
-			[ViewController setRecordingState:idle];
+			[self setRecordingState:idle];
 			[sharedmusic stopPlayback];
 		}
 	}
@@ -729,8 +856,8 @@ static bool key_8_state;
 	}
 }
 
-+(void)clearRecordingState {
-	[ViewController setRecordingState:idle];
+-(void)clearRecordingState {
+	[self setRecordingState:idle];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -771,5 +898,55 @@ static bool key_8_state;
 	for (UITouch *touch in [event allTouches]) {
 		[self handlePianoKeyReleases:touch];
 	}
+}
+
+- (void)dealloc {
+	[key_1_defaultBG release], key_1_defaultBG = nil;
+	[key_2_defaultBG release], key_2_defaultBG = nil;
+	[key_3_defaultBG release], key_3_defaultBG = nil;
+	[key_4_defaultBG release], key_4_defaultBG = nil;
+	[key_5_defaultBG release], key_5_defaultBG = nil;
+	[key_6_defaultBG release], key_6_defaultBG = nil;
+	[key_7_defaultBG release], key_7_defaultBG = nil;
+	[key_8_defaultBG release], key_8_defaultBG = nil;
+
+	[key_1_selBG release], key_1_selBG = nil;
+	[key_2_selBG release], key_2_selBG = nil;
+	[key_3_selBG release], key_3_selBG = nil;
+	[key_4_selBG release], key_4_selBG = nil;
+	[key_5_selBG release], key_5_selBG = nil;
+	[key_6_selBG release], key_6_selBG = nil;
+	[key_7_selBG release], key_7_selBG = nil;
+	[key_8_selBG release], key_8_selBG = nil;
+
+	[inst_1_u release], inst_1_u = nil;
+	[inst_1_s release], inst_1_s = nil;
+	[inst_2_u release], inst_2_u = nil;
+	[inst_2_s release], inst_2_s = nil;
+	[inst_3_u release], inst_3_u = nil;
+	[inst_3_s release], inst_3_s = nil;
+	[inst_4_u release], inst_4_u = nil;
+	[inst_4_s release], inst_4_s = nil;
+
+	[mode_1_u release]; mode_1_u = nil;
+	[mode_1_s release]; mode_1_s = nil;
+	[mode_2_u release]; mode_2_u = nil;
+	[mode_2_s release]; mode_2_s = nil;
+	[mode_3_u release]; mode_3_u = nil;
+	[mode_3_s release]; mode_3_s = nil;
+	
+	[rec_s release], rec_s = nil;
+	[rec_u release], rec_u = nil;
+	[play_s release], play_s = nil;
+	[play_u release], play_u = nil;
+
+	[key_c_s release], key_c_s = nil;
+	[key_c_u release], key_c_u = nil;
+	[key_f_s release], key_f_s = nil;
+	[key_f_u release], key_f_u = nil;
+	[key_g_s release], key_g_s = nil;
+	[key_g_u release], key_g_u = nil;
+
+	[super dealloc];
 }
 @end

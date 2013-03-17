@@ -10,6 +10,7 @@
 #import "SharedMusic.h"
 
 @interface ViewController : UIViewController
+<AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 {
 
 	short int keyCount;
@@ -20,7 +21,6 @@
 	short int UIKeyOffset;
 	short int UIInstOffset;
 
-	SharedMusic * sharedmusic;
 }
-	+ (void) clearRecordingState;
+	- (void) clearRecordingState;
 @end
