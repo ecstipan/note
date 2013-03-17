@@ -104,6 +104,20 @@
 	bool key_6_state;
 	bool key_7_state;
 	bool key_8_state;
+
+	bool arp_1_state;
+	bool arp_2_state;
+	bool arp_3_state;
+	bool arp_4_state;
+	bool arp_5_state;
+	bool arp_6_state;
+	bool arp_7_state;
+	bool arp_8_state;
+	
+
+	bool arp_is_playing;
+
+	NSTimer * arptimer;
 }
 
 @property (nonatomic, retain) UIImage * key_1_defaultBG;
@@ -248,6 +262,17 @@
 	key_6_state = false;
 	key_7_state = false;
 	key_8_state = false;
+
+	arp_1_state = false;
+	arp_2_state = false;
+	arp_3_state = false;
+	arp_4_state = false;
+	arp_5_state = false;
+	arp_6_state = false;
+	arp_7_state = false;
+	arp_8_state = false;
+
+	arp_is_playing = NO;
 
 	sharedmusic = [[SharedMusic alloc] retain];
 
@@ -680,6 +705,28 @@
 	else if (!on && CGRectEqualToRect(key.frame, key_8.frame) && key_8_state) [self key_8_released];
 }
 
+-(void)handleKeyPressesArp:(UITouch *)touch keyToCheck:(UIImageView *)key{
+	bool on = false;
+	if (CGRectContainsPoint(key.frame, [touch locationInView:backgroundView])) on = true;
+
+	if (on && CGRectEqualToRect(key.frame, key_1.frame)) key_1_state=true;
+	else if (!on && CGRectEqualToRect(key.frame, key_1.frame)) [self key_1_released];
+	if (on && CGRectEqualToRect(key.frame, key_2.frame)) key_2_state=true;
+	else if (!on && CGRectEqualToRect(key.frame, key_2.frame)) [self key_2_released];
+	if (on && CGRectEqualToRect(key.frame, key_3.frame)) key_3_state=true;
+	else if (!on && CGRectEqualToRect(key.frame, key_3.frame)) [self key_3_released];
+	if (on && CGRectEqualToRect(key.frame, key_4.frame)) key_4_state=true;
+	else if (!on && CGRectEqualToRect(key.frame, key_4.frame)) [self key_4_released];
+	if (on && CGRectEqualToRect(key.frame, key_5.frame)) key_5_state=true;
+	else if (!on && CGRectEqualToRect(key.frame, key_5.frame)) [self key_5_released];
+	if (on && CGRectEqualToRect(key.frame, key_6.frame)) key_6_state=true;
+	else if (!on && CGRectEqualToRect(key.frame, key_6.frame)) [self key_6_released];
+	if (on && CGRectEqualToRect(key.frame, key_7.frame)) key_7_state=true;
+	else if (!on && CGRectEqualToRect(key.frame, key_7.frame)) [self key_7_released];
+	if (on && CGRectEqualToRect(key.frame, key_8.frame)) key_8_state=true;
+	else if (!on && CGRectEqualToRect(key.frame, key_8.frame)) [self key_8_released];
+}
+
 -(void)KillAllKeys {
 	[self key_1_released];
 	[self key_2_released];
@@ -844,14 +891,26 @@
 		}
 	}else {
 		if (event.allTouches.count == 1) {
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_1];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_2];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_3];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_4];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_5];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_6];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_7];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_8];
+			if (currentMode==arpegiated){  //special handling for arpegiated cases
+					//trigger the note
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_1];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_2];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_3];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_4];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_5];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_6];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_7];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_8];
+			} else {
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_1];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_2];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_3];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_4];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_5];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_6];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_7];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_8];
+			}
 		}
 	}
 }
@@ -859,6 +918,56 @@
 -(void)clearRecordingState {
 	[self setRecordingState:idle];
 }
+
+-(void)resetARPTimer {
+	arptimer = nil;
+	if (key_1_state) {
+		arptimer = [NSTimer scheduledTimerWithTimeInterval:2.00 target:self selector:@selector(resetARPTimer) userInfo:nil repeats:NO];
+		[self key_1_pressed];
+	}
+	else if (key_2_state) {
+		arptimer = [NSTimer scheduledTimerWithTimeInterval:2.00 target:self selector:@selector(resetARPTimer) userInfo:nil repeats:NO];
+		[self key_2_pressed];
+	}
+	else if (key_3_state) {
+		arptimer = [NSTimer scheduledTimerWithTimeInterval:2.00 target:self selector:@selector(resetARPTimer) userInfo:nil repeats:NO];
+		[self key_3_pressed];
+	}
+	else if (key_4_state) {
+		arptimer = [NSTimer scheduledTimerWithTimeInterval:2.00 target:self selector:@selector(resetARPTimer) userInfo:nil repeats:NO];
+		[self key_4_pressed];
+	}
+	else if (key_5_state) {
+		arptimer = [NSTimer scheduledTimerWithTimeInterval:2.00 target:self selector:@selector(resetARPTimer) userInfo:nil repeats:NO];
+		[self key_5_pressed];
+	}
+	else if (key_6_state) {
+		arptimer = [NSTimer scheduledTimerWithTimeInterval:2.00 target:self selector:@selector(resetARPTimer) userInfo:nil repeats:NO];
+		[self key_6_pressed];
+	}
+	else if (key_7_state) {
+		arptimer = [NSTimer scheduledTimerWithTimeInterval:2.00 target:self selector:@selector(resetARPTimer) userInfo:nil repeats:NO];
+		[self key_7_pressed];
+	}
+	else if (key_8_state) {
+		arptimer = [NSTimer scheduledTimerWithTimeInterval:2.00 target:self selector:@selector(resetARPTimer) userInfo:nil repeats:NO];
+		[self key_8_pressed];
+	}
+	else {
+		arp_is_playing = false;
+		NSLog(@"Stopping ARP");
+	}
+
+	if (!key_1_state) [self key_1_released];
+	if (!key_2_state) [self key_2_released];
+	if (!key_3_state) [self key_3_released];
+	if (!key_4_state) [self key_4_released];
+	if (!key_5_state) [self key_5_released];
+	if (!key_6_state) [self key_6_released];
+	if (!key_7_state) [self key_7_released];
+	if (!key_8_state) [self key_8_released];
+}
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	if (currentMode == single) {
@@ -874,14 +983,47 @@
 		}
 	}else {
 		if (event.allTouches.count == 1) {
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_1];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_2];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_3];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_4];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_5];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_6];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_7];
-			[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_8];
+			if (currentMode==arpegiated){  //special handling for arpegiated cases
+				if (!arp_is_playing && !arptimer) {
+					//trigger the note
+					arp_is_playing=true;
+					if (arptimer)
+					{
+						[arptimer invalidate];
+						arptimer = nil;
+					}
+					arptimer = [NSTimer scheduledTimerWithTimeInterval:2.00 target:self selector:@selector(resetARPTimer) userInfo:nil repeats:NO];
+					[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_1];
+					[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_2];
+					[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_3];
+					[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_4];
+					[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_5];
+					[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_6];
+					[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_7];
+					[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_8];
+					arp_is_playing=true;
+				} else {
+					NSLog(@"ARP ALREADY PLAYING!");
+					arp_is_playing=true;
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_1];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_2];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_3];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_4];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_5];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_6];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_7];
+					[self handleKeyPressesArp:[touches anyObject] keyToCheck:key_8];
+				}
+			} else {
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_1];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_2];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_3];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_4];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_5];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_6];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_7];
+				[self handleKeyPressesMono:[touches anyObject] keyToCheck:key_8];
+			}
 		}
 	}
 
@@ -897,6 +1039,9 @@
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	for (UITouch *touch in [event allTouches]) {
 		[self handlePianoKeyReleases:touch];
+	}
+	if (currentMode==arpegiated) {
+		[self KillAllKeys];
 	}
 }
 

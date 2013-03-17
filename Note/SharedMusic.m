@@ -130,292 +130,295 @@ ViewController * parentViewController;
 		[self addSample:@"1_2_3_7" keyNumber:7 instrument:piano mode:chord musicalKey:GMajor];
 		[self addSample:@"1_2_3_8" keyNumber:8 instrument:piano mode:chord musicalKey:GMajor];
 
-		/*
+		
 		//ARPEGIATED
-		[self addSample:@"1" keyNumber:1 instrument:piano mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:2 instrument:piano mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"3" keyNumber:3 instrument:piano mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"4" keyNumber:4 instrument:piano mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"5" keyNumber:5 instrument:piano mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"6" keyNumber:6 instrument:piano mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"7" keyNumber:7 instrument:piano mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:8 instrument:piano mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"1_3_1_1" keyNumber:1 instrument:piano mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"1_3_1_2" keyNumber:2 instrument:piano mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"1_3_1_3" keyNumber:3 instrument:piano mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"1_3_1_4" keyNumber:4 instrument:piano mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"1_3_1_5" keyNumber:5 instrument:piano mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"1_3_1_6" keyNumber:6 instrument:piano mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"1_3_1_7" keyNumber:7 instrument:piano mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"1_3_1_8" keyNumber:8 instrument:piano mode:arpegiated musicalKey:CMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:piano mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:2 instrument:piano mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"3" keyNumber:3 instrument:piano mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"4" keyNumber:4 instrument:piano mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"5" keyNumber:5 instrument:piano mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"6" keyNumber:6 instrument:piano mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"7" keyNumber:7 instrument:piano mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:8 instrument:piano mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"1_3_2_1" keyNumber:1 instrument:piano mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"1_3_2_2" keyNumber:2 instrument:piano mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"1_3_2_3" keyNumber:3 instrument:piano mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"1_3_2_4" keyNumber:4 instrument:piano mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"1_3_2_5" keyNumber:5 instrument:piano mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"1_3_2_6" keyNumber:6 instrument:piano mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"1_3_2_7" keyNumber:7 instrument:piano mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"1_3_2_8" keyNumber:8 instrument:piano mode:arpegiated musicalKey:FMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:piano mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:2 instrument:piano mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"3" keyNumber:3 instrument:piano mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"4" keyNumber:4 instrument:piano mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"5" keyNumber:5 instrument:piano mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"6" keyNumber:6 instrument:piano mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"7" keyNumber:7 instrument:piano mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:8 instrument:piano mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"1_3_3_1" keyNumber:1 instrument:piano mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"1_3_3_2" keyNumber:2 instrument:piano mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"1_3_3_3" keyNumber:3 instrument:piano mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"1_3_3_4" keyNumber:4 instrument:piano mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"1_3_3_5" keyNumber:5 instrument:piano mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"1_3_3_6" keyNumber:6 instrument:piano mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"1_3_3_7" keyNumber:7 instrument:piano mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"1_3_3_8" keyNumber:8 instrument:piano mode:arpegiated musicalKey:GMajor];
+
 		
 		//STRINGS
 		//SINGLE
-		[self addSample:@"1" keyNumber:1 instrument:strings mode:single musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:2 instrument:strings mode:single musicalKey:CMajor];
-		[self addSample:@"3" keyNumber:3 instrument:strings mode:single musicalKey:CMajor];
-		[self addSample:@"4" keyNumber:4 instrument:strings mode:single musicalKey:CMajor];
-		[self addSample:@"5" keyNumber:5 instrument:strings mode:single musicalKey:CMajor];
-		[self addSample:@"6" keyNumber:6 instrument:strings mode:single musicalKey:CMajor];
-		[self addSample:@"7" keyNumber:7 instrument:strings mode:single musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:8 instrument:strings mode:single musicalKey:CMajor];
+		[self addSample:@"2_1_1_1" keyNumber:1 instrument:strings mode:single musicalKey:CMajor];
+		[self addSample:@"2_1_1_2" keyNumber:2 instrument:strings mode:single musicalKey:CMajor];
+		[self addSample:@"2_1_1_3" keyNumber:3 instrument:strings mode:single musicalKey:CMajor];
+		[self addSample:@"2_1_1_4" keyNumber:4 instrument:strings mode:single musicalKey:CMajor];
+		[self addSample:@"2_1_1_5" keyNumber:5 instrument:strings mode:single musicalKey:CMajor];
+		[self addSample:@"2_1_1_6" keyNumber:6 instrument:strings mode:single musicalKey:CMajor];
+		[self addSample:@"2_1_1_7" keyNumber:7 instrument:strings mode:single musicalKey:CMajor];
+		[self addSample:@"2_1_1_8" keyNumber:8 instrument:strings mode:single musicalKey:CMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:strings mode:single musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:2 instrument:strings mode:single musicalKey:FMajor];
-		[self addSample:@"3" keyNumber:3 instrument:strings mode:single musicalKey:FMajor];
-		[self addSample:@"4" keyNumber:4 instrument:strings mode:single musicalKey:FMajor];
-		[self addSample:@"5" keyNumber:5 instrument:strings mode:single musicalKey:FMajor];
-		[self addSample:@"6" keyNumber:6 instrument:strings mode:single musicalKey:FMajor];
-		[self addSample:@"7" keyNumber:7 instrument:strings mode:single musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:8 instrument:strings mode:single musicalKey:FMajor];
+		[self addSample:@"2_1_2_1" keyNumber:1 instrument:strings mode:single musicalKey:FMajor];
+		[self addSample:@"2_1_2_2" keyNumber:2 instrument:strings mode:single musicalKey:FMajor];
+		[self addSample:@"2_1_2_3" keyNumber:3 instrument:strings mode:single musicalKey:FMajor];
+		[self addSample:@"2_1_2_4" keyNumber:4 instrument:strings mode:single musicalKey:FMajor];
+		[self addSample:@"2_1_2_5" keyNumber:5 instrument:strings mode:single musicalKey:FMajor];
+		[self addSample:@"2_1_2_6" keyNumber:6 instrument:strings mode:single musicalKey:FMajor];
+		[self addSample:@"2_1_2_7" keyNumber:7 instrument:strings mode:single musicalKey:FMajor];
+		[self addSample:@"2_1_2_8" keyNumber:8 instrument:strings mode:single musicalKey:FMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:strings mode:single musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:2 instrument:strings mode:single musicalKey:GMajor];
-		[self addSample:@"3" keyNumber:3 instrument:strings mode:single musicalKey:GMajor];
-		[self addSample:@"4" keyNumber:4 instrument:strings mode:single musicalKey:GMajor];
-		[self addSample:@"5" keyNumber:5 instrument:strings mode:single musicalKey:GMajor];
-		[self addSample:@"6" keyNumber:6 instrument:strings mode:single musicalKey:GMajor];
-		[self addSample:@"7" keyNumber:7 instrument:strings mode:single musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:8 instrument:strings mode:single musicalKey:GMajor];
+		[self addSample:@"2_1_3_1" keyNumber:1 instrument:strings mode:single musicalKey:GMajor];
+		[self addSample:@"2_1_3_2" keyNumber:2 instrument:strings mode:single musicalKey:GMajor];
+		[self addSample:@"2_1_3_3" keyNumber:3 instrument:strings mode:single musicalKey:GMajor];
+		[self addSample:@"2_1_3_4" keyNumber:4 instrument:strings mode:single musicalKey:GMajor];
+		[self addSample:@"2_1_3_5" keyNumber:5 instrument:strings mode:single musicalKey:GMajor];
+		[self addSample:@"2_1_3_6" keyNumber:6 instrument:strings mode:single musicalKey:GMajor];
+		[self addSample:@"2_1_3_7" keyNumber:7 instrument:strings mode:single musicalKey:GMajor];
+		[self addSample:@"2_1_3_8" keyNumber:8 instrument:strings mode:single musicalKey:GMajor];
 
 		//CHORD
-		[self addSample:@"1" keyNumber:1 instrument:strings mode:chord musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:2 instrument:strings mode:chord musicalKey:CMajor];
-		[self addSample:@"3" keyNumber:3 instrument:strings mode:chord musicalKey:CMajor];
-		[self addSample:@"4" keyNumber:4 instrument:strings mode:chord musicalKey:CMajor];
-		[self addSample:@"5" keyNumber:5 instrument:strings mode:chord musicalKey:CMajor];
-		[self addSample:@"6" keyNumber:6 instrument:strings mode:chord musicalKey:CMajor];
-		[self addSample:@"7" keyNumber:7 instrument:strings mode:chord musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:8 instrument:strings mode:chord musicalKey:CMajor];
+		[self addSample:@"2_2_1_1" keyNumber:1 instrument:strings mode:chord musicalKey:CMajor];
+		[self addSample:@"2_2_1_2" keyNumber:2 instrument:strings mode:chord musicalKey:CMajor];
+		[self addSample:@"2_2_1_3" keyNumber:3 instrument:strings mode:chord musicalKey:CMajor];
+		[self addSample:@"2_2_1_4" keyNumber:4 instrument:strings mode:chord musicalKey:CMajor];
+		[self addSample:@"2_2_1_5" keyNumber:5 instrument:strings mode:chord musicalKey:CMajor];
+		[self addSample:@"2_2_1_6" keyNumber:6 instrument:strings mode:chord musicalKey:CMajor];
+		[self addSample:@"2_2_1_7" keyNumber:7 instrument:strings mode:chord musicalKey:CMajor];
+		[self addSample:@"2_2_1_8" keyNumber:8 instrument:strings mode:chord musicalKey:CMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:strings mode:chord musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:2 instrument:strings mode:chord musicalKey:FMajor];
-		[self addSample:@"3" keyNumber:3 instrument:strings mode:chord musicalKey:FMajor];
-		[self addSample:@"4" keyNumber:4 instrument:strings mode:chord musicalKey:FMajor];
-		[self addSample:@"5" keyNumber:5 instrument:strings mode:chord musicalKey:FMajor];
-		[self addSample:@"6" keyNumber:6 instrument:strings mode:chord musicalKey:FMajor];
-		[self addSample:@"7" keyNumber:7 instrument:strings mode:chord musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:8 instrument:strings mode:chord musicalKey:FMajor];
+		[self addSample:@"2_2_2_1" keyNumber:1 instrument:strings mode:chord musicalKey:FMajor];
+		[self addSample:@"2_2_2_2" keyNumber:2 instrument:strings mode:chord musicalKey:FMajor];
+		[self addSample:@"2_2_2_3" keyNumber:3 instrument:strings mode:chord musicalKey:FMajor];
+		[self addSample:@"2_2_2_4" keyNumber:4 instrument:strings mode:chord musicalKey:FMajor];
+		[self addSample:@"2_2_2_5" keyNumber:5 instrument:strings mode:chord musicalKey:FMajor];
+		[self addSample:@"2_2_2_6" keyNumber:6 instrument:strings mode:chord musicalKey:FMajor];
+		[self addSample:@"2_2_2_7" keyNumber:7 instrument:strings mode:chord musicalKey:FMajor];
+		[self addSample:@"2_2_2_8" keyNumber:8 instrument:strings mode:chord musicalKey:FMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:strings mode:chord musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:2 instrument:strings mode:chord musicalKey:GMajor];
-		[self addSample:@"3" keyNumber:3 instrument:strings mode:chord musicalKey:GMajor];
-		[self addSample:@"4" keyNumber:4 instrument:strings mode:chord musicalKey:GMajor];
-		[self addSample:@"5" keyNumber:5 instrument:strings mode:chord musicalKey:GMajor];
-		[self addSample:@"6" keyNumber:6 instrument:strings mode:chord musicalKey:GMajor];
-		[self addSample:@"7" keyNumber:7 instrument:strings mode:chord musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:8 instrument:strings mode:chord musicalKey:GMajor];
+		[self addSample:@"2_2_3_1" keyNumber:1 instrument:strings mode:chord musicalKey:GMajor];
+		[self addSample:@"2_2_3_2" keyNumber:2 instrument:strings mode:chord musicalKey:GMajor];
+		[self addSample:@"2_2_3_3" keyNumber:3 instrument:strings mode:chord musicalKey:GMajor];
+		[self addSample:@"2_2_3_4" keyNumber:4 instrument:strings mode:chord musicalKey:GMajor];
+		[self addSample:@"2_2_3_5" keyNumber:5 instrument:strings mode:chord musicalKey:GMajor];
+		[self addSample:@"2_2_3_6" keyNumber:6 instrument:strings mode:chord musicalKey:GMajor];
+		[self addSample:@"2_2_3_7" keyNumber:7 instrument:strings mode:chord musicalKey:GMajor];
+		[self addSample:@"2_2_3_8" keyNumber:8 instrument:strings mode:chord musicalKey:GMajor];
 
 		//ARPEGIATED
-		[self addSample:@"1" keyNumber:1 instrument:strings mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:2 instrument:strings mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"3" keyNumber:3 instrument:strings mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"4" keyNumber:4 instrument:strings mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"5" keyNumber:5 instrument:strings mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"6" keyNumber:6 instrument:strings mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"7" keyNumber:7 instrument:strings mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:8 instrument:strings mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"2_3_1_1" keyNumber:1 instrument:strings mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"2_3_1_2" keyNumber:2 instrument:strings mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"2_3_1_3" keyNumber:3 instrument:strings mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"2_3_1_4" keyNumber:4 instrument:strings mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"2_3_1_5" keyNumber:5 instrument:strings mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"2_3_1_6" keyNumber:6 instrument:strings mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"2_3_1_7" keyNumber:7 instrument:strings mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"2_3_1_8" keyNumber:8 instrument:strings mode:arpegiated musicalKey:CMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:strings mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:2 instrument:strings mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"3" keyNumber:3 instrument:strings mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"4" keyNumber:4 instrument:strings mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"5" keyNumber:5 instrument:strings mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"6" keyNumber:6 instrument:strings mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"7" keyNumber:7 instrument:strings mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:8 instrument:strings mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"2_3_2_1" keyNumber:1 instrument:strings mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"2_3_2_2" keyNumber:2 instrument:strings mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"2_3_2_3" keyNumber:3 instrument:strings mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"2_3_2_4" keyNumber:4 instrument:strings mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"2_3_2_5" keyNumber:5 instrument:strings mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"2_3_2_6" keyNumber:6 instrument:strings mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"2_3_2_7" keyNumber:7 instrument:strings mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"2_3_2_8" keyNumber:8 instrument:strings mode:arpegiated musicalKey:FMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:strings mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:2 instrument:strings mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"3" keyNumber:3 instrument:strings mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"4" keyNumber:4 instrument:strings mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"5" keyNumber:5 instrument:strings mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"6" keyNumber:6 instrument:strings mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"7" keyNumber:7 instrument:strings mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:8 instrument:strings mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"2_3_3_1" keyNumber:1 instrument:strings mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"2_3_3_2" keyNumber:2 instrument:strings mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"2_3_3_3" keyNumber:3 instrument:strings mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"2_3_3_4" keyNumber:4 instrument:strings mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"2_3_3_5" keyNumber:5 instrument:strings mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"2_3_3_6" keyNumber:6 instrument:strings mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"2_3_3_7" keyNumber:7 instrument:strings mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"2_3_3_8" keyNumber:8 instrument:strings mode:arpegiated musicalKey:GMajor];
 
+
+		
 		//BELLS
 		//SINGLE
-		[self addSample:@"1" keyNumber:1 instrument:bells mode:single musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:2 instrument:bells mode:single musicalKey:CMajor];
-		[self addSample:@"3" keyNumber:3 instrument:bells mode:single musicalKey:CMajor];
-		[self addSample:@"4" keyNumber:4 instrument:bells mode:single musicalKey:CMajor];
-		[self addSample:@"5" keyNumber:5 instrument:bells mode:single musicalKey:CMajor];
-		[self addSample:@"6" keyNumber:6 instrument:bells mode:single musicalKey:CMajor];
-		[self addSample:@"7" keyNumber:7 instrument:bells mode:single musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:8 instrument:bells mode:single musicalKey:CMajor];
+		[self addSample:@"3_1_1_1" keyNumber:1 instrument:bells mode:single musicalKey:CMajor];
+		[self addSample:@"3_1_1_2" keyNumber:2 instrument:bells mode:single musicalKey:CMajor];
+		[self addSample:@"3_1_1_3" keyNumber:3 instrument:bells mode:single musicalKey:CMajor];
+		[self addSample:@"3_1_1_4" keyNumber:4 instrument:bells mode:single musicalKey:CMajor];
+		[self addSample:@"3_1_1_5" keyNumber:5 instrument:bells mode:single musicalKey:CMajor];
+		[self addSample:@"3_1_1_6" keyNumber:6 instrument:bells mode:single musicalKey:CMajor];
+		[self addSample:@"3_1_1_7" keyNumber:7 instrument:bells mode:single musicalKey:CMajor];
+		[self addSample:@"3_1_1_8" keyNumber:8 instrument:bells mode:single musicalKey:CMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:bells mode:single musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:2 instrument:bells mode:single musicalKey:FMajor];
-		[self addSample:@"3" keyNumber:3 instrument:bells mode:single musicalKey:FMajor];
-		[self addSample:@"4" keyNumber:4 instrument:bells mode:single musicalKey:FMajor];
-		[self addSample:@"5" keyNumber:5 instrument:bells mode:single musicalKey:FMajor];
-		[self addSample:@"6" keyNumber:6 instrument:bells mode:single musicalKey:FMajor];
-		[self addSample:@"7" keyNumber:7 instrument:bells mode:single musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:8 instrument:bells mode:single musicalKey:FMajor];
+		[self addSample:@"3_1_2_1" keyNumber:1 instrument:bells mode:single musicalKey:FMajor];
+		[self addSample:@"3_1_2_2" keyNumber:2 instrument:bells mode:single musicalKey:FMajor];
+		[self addSample:@"3_1_2_3" keyNumber:3 instrument:bells mode:single musicalKey:FMajor];
+		[self addSample:@"3_1_2_4" keyNumber:4 instrument:bells mode:single musicalKey:FMajor];
+		[self addSample:@"3_1_2_5" keyNumber:5 instrument:bells mode:single musicalKey:FMajor];
+		[self addSample:@"3_1_2_6" keyNumber:6 instrument:bells mode:single musicalKey:FMajor];
+		[self addSample:@"3_1_2_7" keyNumber:7 instrument:bells mode:single musicalKey:FMajor];
+		[self addSample:@"3_1_2_8" keyNumber:8 instrument:bells mode:single musicalKey:FMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:bells mode:single musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:2 instrument:bells mode:single musicalKey:GMajor];
-		[self addSample:@"3" keyNumber:3 instrument:bells mode:single musicalKey:GMajor];
-		[self addSample:@"4" keyNumber:4 instrument:bells mode:single musicalKey:GMajor];
-		[self addSample:@"5" keyNumber:5 instrument:bells mode:single musicalKey:GMajor];
-		[self addSample:@"6" keyNumber:6 instrument:bells mode:single musicalKey:GMajor];
-		[self addSample:@"7" keyNumber:7 instrument:bells mode:single musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:8 instrument:bells mode:single musicalKey:GMajor];
+		[self addSample:@"3_1_3_1" keyNumber:1 instrument:bells mode:single musicalKey:GMajor];
+		[self addSample:@"3_1_3_2" keyNumber:2 instrument:bells mode:single musicalKey:GMajor];
+		[self addSample:@"3_1_3_3" keyNumber:3 instrument:bells mode:single musicalKey:GMajor];
+		[self addSample:@"3_1_3_4" keyNumber:4 instrument:bells mode:single musicalKey:GMajor];
+		[self addSample:@"3_1_3_5" keyNumber:5 instrument:bells mode:single musicalKey:GMajor];
+		[self addSample:@"3_1_3_6" keyNumber:6 instrument:bells mode:single musicalKey:GMajor];
+		[self addSample:@"3_1_3_7" keyNumber:7 instrument:bells mode:single musicalKey:GMajor];
+		[self addSample:@"3_1_3_8" keyNumber:8 instrument:bells mode:single musicalKey:GMajor];
 
 		//CHORD
-		[self addSample:@"1" keyNumber:1 instrument:bells mode:chord musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:2 instrument:bells mode:chord musicalKey:CMajor];
-		[self addSample:@"3" keyNumber:3 instrument:bells mode:chord musicalKey:CMajor];
-		[self addSample:@"4" keyNumber:4 instrument:bells mode:chord musicalKey:CMajor];
-		[self addSample:@"5" keyNumber:5 instrument:bells mode:chord musicalKey:CMajor];
-		[self addSample:@"6" keyNumber:6 instrument:bells mode:chord musicalKey:CMajor];
-		[self addSample:@"7" keyNumber:7 instrument:bells mode:chord musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:8 instrument:bells mode:chord musicalKey:CMajor];
+		[self addSample:@"3_2_1_1" keyNumber:1 instrument:bells mode:chord musicalKey:CMajor];
+		[self addSample:@"3_2_1_2" keyNumber:2 instrument:bells mode:chord musicalKey:CMajor];
+		[self addSample:@"3_2_1_3" keyNumber:3 instrument:bells mode:chord musicalKey:CMajor];
+		[self addSample:@"3_2_1_4" keyNumber:4 instrument:bells mode:chord musicalKey:CMajor];
+		[self addSample:@"3_2_1_5" keyNumber:5 instrument:bells mode:chord musicalKey:CMajor];
+		[self addSample:@"3_2_1_6" keyNumber:6 instrument:bells mode:chord musicalKey:CMajor];
+		[self addSample:@"3_2_1_7" keyNumber:7 instrument:bells mode:chord musicalKey:CMajor];
+		[self addSample:@"3_2_1_8" keyNumber:8 instrument:bells mode:chord musicalKey:CMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:bells mode:chord musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:2 instrument:bells mode:chord musicalKey:FMajor];
-		[self addSample:@"3" keyNumber:3 instrument:bells mode:chord musicalKey:FMajor];
-		[self addSample:@"4" keyNumber:4 instrument:bells mode:chord musicalKey:FMajor];
-		[self addSample:@"5" keyNumber:5 instrument:bells mode:chord musicalKey:FMajor];
-		[self addSample:@"6" keyNumber:6 instrument:bells mode:chord musicalKey:FMajor];
-		[self addSample:@"7" keyNumber:7 instrument:bells mode:chord musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:8 instrument:bells mode:chord musicalKey:FMajor];
+		[self addSample:@"3_2_2_1" keyNumber:1 instrument:bells mode:chord musicalKey:FMajor];
+		[self addSample:@"3_2_2_2" keyNumber:2 instrument:bells mode:chord musicalKey:FMajor];
+		[self addSample:@"3_2_2_3" keyNumber:3 instrument:bells mode:chord musicalKey:FMajor];
+		[self addSample:@"3_2_2_4" keyNumber:4 instrument:bells mode:chord musicalKey:FMajor];
+		[self addSample:@"3_2_2_5" keyNumber:5 instrument:bells mode:chord musicalKey:FMajor];
+		[self addSample:@"3_2_2_6" keyNumber:6 instrument:bells mode:chord musicalKey:FMajor];
+		[self addSample:@"3_2_2_7" keyNumber:7 instrument:bells mode:chord musicalKey:FMajor];
+		[self addSample:@"3_2_2_8" keyNumber:8 instrument:bells mode:chord musicalKey:FMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:bells mode:chord musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:2 instrument:bells mode:chord musicalKey:GMajor];
-		[self addSample:@"3" keyNumber:3 instrument:bells mode:chord musicalKey:GMajor];
-		[self addSample:@"4" keyNumber:4 instrument:bells mode:chord musicalKey:GMajor];
-		[self addSample:@"5" keyNumber:5 instrument:bells mode:chord musicalKey:GMajor];
-		[self addSample:@"6" keyNumber:6 instrument:bells mode:chord musicalKey:GMajor];
-		[self addSample:@"7" keyNumber:7 instrument:bells mode:chord musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:8 instrument:bells mode:chord musicalKey:GMajor];
+		[self addSample:@"3_2_3_1" keyNumber:1 instrument:bells mode:chord musicalKey:GMajor];
+		[self addSample:@"3_2_3_2" keyNumber:2 instrument:bells mode:chord musicalKey:GMajor];
+		[self addSample:@"3_2_3_3" keyNumber:3 instrument:bells mode:chord musicalKey:GMajor];
+		[self addSample:@"3_2_3_4" keyNumber:4 instrument:bells mode:chord musicalKey:GMajor];
+		[self addSample:@"3_2_3_5" keyNumber:5 instrument:bells mode:chord musicalKey:GMajor];
+		[self addSample:@"3_2_3_6" keyNumber:6 instrument:bells mode:chord musicalKey:GMajor];
+		[self addSample:@"3_2_3_7" keyNumber:7 instrument:bells mode:chord musicalKey:GMajor];
+		[self addSample:@"3_2_3_8" keyNumber:8 instrument:bells mode:chord musicalKey:GMajor];
 
 		//ARPEGIATED
-		[self addSample:@"1" keyNumber:1 instrument:bells mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:2 instrument:bells mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"3" keyNumber:3 instrument:bells mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"4" keyNumber:4 instrument:bells mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"5" keyNumber:5 instrument:bells mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"6" keyNumber:6 instrument:bells mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"7" keyNumber:7 instrument:bells mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:8 instrument:bells mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"3_3_1_1" keyNumber:1 instrument:bells mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"3_3_1_2" keyNumber:2 instrument:bells mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"3_3_1_3" keyNumber:3 instrument:bells mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"3_3_1_4" keyNumber:4 instrument:bells mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"3_3_1_5" keyNumber:5 instrument:bells mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"3_3_1_6" keyNumber:6 instrument:bells mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"3_3_1_7" keyNumber:7 instrument:bells mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"3_3_1_8" keyNumber:8 instrument:bells mode:arpegiated musicalKey:CMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:bells mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:2 instrument:bells mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"3" keyNumber:3 instrument:bells mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"4" keyNumber:4 instrument:bells mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"5" keyNumber:5 instrument:bells mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"6" keyNumber:6 instrument:bells mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"7" keyNumber:7 instrument:bells mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:8 instrument:bells mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"3_3_2_1" keyNumber:1 instrument:bells mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"3_3_2_2" keyNumber:2 instrument:bells mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"3_3_2_3" keyNumber:3 instrument:bells mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"3_3_2_4" keyNumber:4 instrument:bells mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"3_3_2_5" keyNumber:5 instrument:bells mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"3_3_2_6" keyNumber:6 instrument:bells mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"3_3_2_7" keyNumber:7 instrument:bells mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"3_3_2_8" keyNumber:8 instrument:bells mode:arpegiated musicalKey:FMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:bells mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:2 instrument:bells mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"3" keyNumber:3 instrument:bells mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"4" keyNumber:4 instrument:bells mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"5" keyNumber:5 instrument:bells mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"6" keyNumber:6 instrument:bells mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"7" keyNumber:7 instrument:bells mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:8 instrument:bells mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"3_3_3_1" keyNumber:1 instrument:bells mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"3_3_3_2" keyNumber:2 instrument:bells mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"3_3_3_3" keyNumber:3 instrument:bells mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"3_3_3_4" keyNumber:4 instrument:bells mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"3_3_3_5" keyNumber:5 instrument:bells mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"3_3_3_6" keyNumber:6 instrument:bells mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"3_3_3_7" keyNumber:7 instrument:bells mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"3_3_3_8" keyNumber:8 instrument:bells mode:arpegiated musicalKey:GMajor];
 
-
+		
 		//HORN
 		//SINGLE
-		[self addSample:@"1" keyNumber:1 instrument:horn mode:single musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:2 instrument:horn mode:single musicalKey:CMajor];
-		[self addSample:@"3" keyNumber:3 instrument:horn mode:single musicalKey:CMajor];
-		[self addSample:@"4" keyNumber:4 instrument:horn mode:single musicalKey:CMajor];
-		[self addSample:@"5" keyNumber:5 instrument:horn mode:single musicalKey:CMajor];
-		[self addSample:@"6" keyNumber:6 instrument:horn mode:single musicalKey:CMajor];
-		[self addSample:@"7" keyNumber:7 instrument:horn mode:single musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:8 instrument:horn mode:single musicalKey:CMajor];
+		[self addSample:@"4_1_1_1" keyNumber:1 instrument:horn mode:single musicalKey:CMajor];
+		[self addSample:@"4_1_1_2" keyNumber:2 instrument:horn mode:single musicalKey:CMajor];
+		[self addSample:@"4_1_1_3" keyNumber:3 instrument:horn mode:single musicalKey:CMajor];
+		[self addSample:@"4_1_1_4" keyNumber:4 instrument:horn mode:single musicalKey:CMajor];
+		[self addSample:@"4_1_1_5" keyNumber:5 instrument:horn mode:single musicalKey:CMajor];
+		[self addSample:@"4_1_1_6" keyNumber:6 instrument:horn mode:single musicalKey:CMajor];
+		[self addSample:@"4_1_1_7" keyNumber:7 instrument:horn mode:single musicalKey:CMajor];
+		[self addSample:@"4_1_1_8" keyNumber:8 instrument:horn mode:single musicalKey:CMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:horn mode:single musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:2 instrument:horn mode:single musicalKey:FMajor];
-		[self addSample:@"3" keyNumber:3 instrument:horn mode:single musicalKey:FMajor];
-		[self addSample:@"4" keyNumber:4 instrument:horn mode:single musicalKey:FMajor];
-		[self addSample:@"5" keyNumber:5 instrument:horn mode:single musicalKey:FMajor];
-		[self addSample:@"6" keyNumber:6 instrument:horn mode:single musicalKey:FMajor];
-		[self addSample:@"7" keyNumber:7 instrument:horn mode:single musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:8 instrument:horn mode:single musicalKey:FMajor];
+		[self addSample:@"4_1_2_1" keyNumber:1 instrument:horn mode:single musicalKey:FMajor];
+		[self addSample:@"4_1_2_2" keyNumber:2 instrument:horn mode:single musicalKey:FMajor];
+		[self addSample:@"4_1_2_3" keyNumber:3 instrument:horn mode:single musicalKey:FMajor];
+		[self addSample:@"4_1_2_4" keyNumber:4 instrument:horn mode:single musicalKey:FMajor];
+		[self addSample:@"4_1_2_5" keyNumber:5 instrument:horn mode:single musicalKey:FMajor];
+		[self addSample:@"4_1_2_6" keyNumber:6 instrument:horn mode:single musicalKey:FMajor];
+		[self addSample:@"4_1_2_7" keyNumber:7 instrument:horn mode:single musicalKey:FMajor];
+		[self addSample:@"4_1_2_8" keyNumber:8 instrument:horn mode:single musicalKey:FMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:horn mode:single musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:2 instrument:horn mode:single musicalKey:GMajor];
-		[self addSample:@"3" keyNumber:3 instrument:horn mode:single musicalKey:GMajor];
-		[self addSample:@"4" keyNumber:4 instrument:horn mode:single musicalKey:GMajor];
-		[self addSample:@"5" keyNumber:5 instrument:horn mode:single musicalKey:GMajor];
-		[self addSample:@"6" keyNumber:6 instrument:horn mode:single musicalKey:GMajor];
-		[self addSample:@"7" keyNumber:7 instrument:horn mode:single musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:8 instrument:horn mode:single musicalKey:GMajor];
+		[self addSample:@"4_1_3_1" keyNumber:1 instrument:horn mode:single musicalKey:GMajor];
+		[self addSample:@"4_1_3_2" keyNumber:2 instrument:horn mode:single musicalKey:GMajor];
+		[self addSample:@"4_1_3_3" keyNumber:3 instrument:horn mode:single musicalKey:GMajor];
+		[self addSample:@"4_1_3_4" keyNumber:4 instrument:horn mode:single musicalKey:GMajor];
+		[self addSample:@"4_1_3_5" keyNumber:5 instrument:horn mode:single musicalKey:GMajor];
+		[self addSample:@"4_1_3_6" keyNumber:6 instrument:horn mode:single musicalKey:GMajor];
+		[self addSample:@"4_1_3_7" keyNumber:7 instrument:horn mode:single musicalKey:GMajor];
+		[self addSample:@"4_1_3_8" keyNumber:8 instrument:horn mode:single musicalKey:GMajor];
 
 		//CHORD
-		[self addSample:@"1" keyNumber:1 instrument:horn mode:chord musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:2 instrument:horn mode:chord musicalKey:CMajor];
-		[self addSample:@"3" keyNumber:3 instrument:horn mode:chord musicalKey:CMajor];
-		[self addSample:@"4" keyNumber:4 instrument:horn mode:chord musicalKey:CMajor];
-		[self addSample:@"5" keyNumber:5 instrument:horn mode:chord musicalKey:CMajor];
-		[self addSample:@"6" keyNumber:6 instrument:horn mode:chord musicalKey:CMajor];
-		[self addSample:@"7" keyNumber:7 instrument:horn mode:chord musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:8 instrument:horn mode:chord musicalKey:CMajor];
+		[self addSample:@"4_2_1_1" keyNumber:1 instrument:horn mode:chord musicalKey:CMajor];
+		[self addSample:@"4_2_1_2" keyNumber:2 instrument:horn mode:chord musicalKey:CMajor];
+		[self addSample:@"4_2_1_3" keyNumber:3 instrument:horn mode:chord musicalKey:CMajor];
+		[self addSample:@"4_2_1_4" keyNumber:4 instrument:horn mode:chord musicalKey:CMajor];
+		[self addSample:@"4_2_1_5" keyNumber:5 instrument:horn mode:chord musicalKey:CMajor];
+		[self addSample:@"4_2_1_6" keyNumber:6 instrument:horn mode:chord musicalKey:CMajor];
+		[self addSample:@"4_2_1_7" keyNumber:7 instrument:horn mode:chord musicalKey:CMajor];
+		[self addSample:@"4_2_1_8" keyNumber:8 instrument:horn mode:chord musicalKey:CMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:horn mode:chord musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:2 instrument:horn mode:chord musicalKey:FMajor];
-		[self addSample:@"3" keyNumber:3 instrument:horn mode:chord musicalKey:FMajor];
-		[self addSample:@"4" keyNumber:4 instrument:horn mode:chord musicalKey:FMajor];
-		[self addSample:@"5" keyNumber:5 instrument:horn mode:chord musicalKey:FMajor];
-		[self addSample:@"6" keyNumber:6 instrument:horn mode:chord musicalKey:FMajor];
-		[self addSample:@"7" keyNumber:7 instrument:horn mode:chord musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:8 instrument:horn mode:chord musicalKey:FMajor];
+		[self addSample:@"4_2_2_1" keyNumber:1 instrument:horn mode:chord musicalKey:FMajor];
+		[self addSample:@"4_2_2_2" keyNumber:2 instrument:horn mode:chord musicalKey:FMajor];
+		[self addSample:@"4_2_2_3" keyNumber:3 instrument:horn mode:chord musicalKey:FMajor];
+		[self addSample:@"4_2_2_4" keyNumber:4 instrument:horn mode:chord musicalKey:FMajor];
+		[self addSample:@"4_2_2_5" keyNumber:5 instrument:horn mode:chord musicalKey:FMajor];
+		[self addSample:@"4_2_2_6" keyNumber:6 instrument:horn mode:chord musicalKey:FMajor];
+		[self addSample:@"4_2_2_7" keyNumber:7 instrument:horn mode:chord musicalKey:FMajor];
+		[self addSample:@"4_2_2_8" keyNumber:8 instrument:horn mode:chord musicalKey:FMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:horn mode:chord musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:2 instrument:horn mode:chord musicalKey:GMajor];
-		[self addSample:@"3" keyNumber:3 instrument:horn mode:chord musicalKey:GMajor];
-		[self addSample:@"4" keyNumber:4 instrument:horn mode:chord musicalKey:GMajor];
-		[self addSample:@"5" keyNumber:5 instrument:horn mode:chord musicalKey:GMajor];
-		[self addSample:@"6" keyNumber:6 instrument:horn mode:chord musicalKey:GMajor];
-		[self addSample:@"7" keyNumber:7 instrument:horn mode:chord musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:8 instrument:horn mode:chord musicalKey:GMajor];
+		[self addSample:@"4_2_3_1" keyNumber:1 instrument:horn mode:chord musicalKey:GMajor];
+		[self addSample:@"4_2_3_2" keyNumber:2 instrument:horn mode:chord musicalKey:GMajor];
+		[self addSample:@"4_2_3_3" keyNumber:3 instrument:horn mode:chord musicalKey:GMajor];
+		[self addSample:@"4_2_3_4" keyNumber:4 instrument:horn mode:chord musicalKey:GMajor];
+		[self addSample:@"4_2_3_5" keyNumber:5 instrument:horn mode:chord musicalKey:GMajor];
+		[self addSample:@"4_2_3_6" keyNumber:6 instrument:horn mode:chord musicalKey:GMajor];
+		[self addSample:@"4_2_3_7" keyNumber:7 instrument:horn mode:chord musicalKey:GMajor];
+		[self addSample:@"4_2_3_8" keyNumber:8 instrument:horn mode:chord musicalKey:GMajor];
 
 		//ARPEGIATED
-		[self addSample:@"1" keyNumber:1 instrument:horn mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:2 instrument:horn mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"3" keyNumber:3 instrument:horn mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"4" keyNumber:4 instrument:horn mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"5" keyNumber:5 instrument:horn mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"6" keyNumber:6 instrument:horn mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"7" keyNumber:7 instrument:horn mode:arpegiated musicalKey:CMajor];
-		[self addSample:@"2" keyNumber:8 instrument:horn mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"4_3_1_1" keyNumber:1 instrument:horn mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"4_3_1_2" keyNumber:2 instrument:horn mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"4_3_1_3" keyNumber:3 instrument:horn mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"4_3_1_4" keyNumber:4 instrument:horn mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"4_3_1_5" keyNumber:5 instrument:horn mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"4_3_1_6" keyNumber:6 instrument:horn mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"4_3_1_7" keyNumber:7 instrument:horn mode:arpegiated musicalKey:CMajor];
+		[self addSample:@"4_3_1_8" keyNumber:8 instrument:horn mode:arpegiated musicalKey:CMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:horn mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:2 instrument:horn mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"3" keyNumber:3 instrument:horn mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"4" keyNumber:4 instrument:horn mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"5" keyNumber:5 instrument:horn mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"6" keyNumber:6 instrument:horn mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"7" keyNumber:7 instrument:horn mode:arpegiated musicalKey:FMajor];
-		[self addSample:@"2" keyNumber:8 instrument:horn mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"4_3_2_1" keyNumber:1 instrument:horn mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"4_3_2_2" keyNumber:2 instrument:horn mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"4_3_2_3" keyNumber:3 instrument:horn mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"4_3_2_4" keyNumber:4 instrument:horn mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"4_3_2_5" keyNumber:5 instrument:horn mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"4_3_2_6" keyNumber:6 instrument:horn mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"4_3_2_7" keyNumber:7 instrument:horn mode:arpegiated musicalKey:FMajor];
+		[self addSample:@"4_3_2_8" keyNumber:8 instrument:horn mode:arpegiated musicalKey:FMajor];
 
-		[self addSample:@"1" keyNumber:1 instrument:horn mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:2 instrument:horn mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"3" keyNumber:3 instrument:horn mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"4" keyNumber:4 instrument:horn mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"5" keyNumber:5 instrument:horn mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"6" keyNumber:6 instrument:horn mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"7" keyNumber:7 instrument:horn mode:arpegiated musicalKey:GMajor];
-		[self addSample:@"2" keyNumber:8 instrument:horn mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"4_3_3_1" keyNumber:1 instrument:horn mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"4_3_3_2" keyNumber:2 instrument:horn mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"4_3_3_3" keyNumber:3 instrument:horn mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"4_3_3_4" keyNumber:4 instrument:horn mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"4_3_3_5" keyNumber:5 instrument:horn mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"4_3_3_6" keyNumber:6 instrument:horn mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"4_3_3_7" keyNumber:7 instrument:horn mode:arpegiated musicalKey:GMajor];
+		[self addSample:@"4_3_3_8" keyNumber:8 instrument:horn mode:arpegiated musicalKey:GMajor];
 
-		*/
+		
 		NSLog(@"ALL SAMPLES LOADED!");
 	}
 
@@ -465,8 +468,8 @@ ViewController * parentViewController;
 	//Voice Recording
 	- (void)startRecording {
 		NSLog(@"AUDIO: Start Recording...");
-		[audioRecorder recordForDuration:10.00];
-		[NSTimer scheduledTimerWithTimeInterval:10.00 target:self selector:@selector(forceStopRecord) userInfo:nil repeats:NO];
+		[audioRecorder recordForDuration:30.00];
+		[NSTimer scheduledTimerWithTimeInterval:30.00 target:self selector:@selector(forceStopRecord) userInfo:nil repeats:NO];
 	}
 	- (void)stopRecording {
 		[audioRecorder stop];
