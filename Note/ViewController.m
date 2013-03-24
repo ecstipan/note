@@ -447,12 +447,14 @@
 	[threeFingerSwipeDown setNumberOfTouchesRequired:3];
     [[self view] addGestureRecognizer:threeFingerSwipeDown];
 
+	/*
 	UITapGestureRecognizer *doubleTapScreen = [[[UITapGestureRecognizer alloc]
 												initWithTarget:self
 												action:@selector(doubleTapScreen:)] autorelease];
 	doubleTapScreen.numberOfTapsRequired = 2;
 	doubleTapScreen.numberOfTouchesRequired = 3;
 	[[self view] addGestureRecognizer:doubleTapScreen];
+	 */
 }
 
 - (void)didReceiveMemoryWarning
@@ -512,13 +514,14 @@
 - (void)threeFingerSwipeDown:(UITapGestureRecognizer *)recognizer {
     // Insert your own code to handle swipe down
 	[self showAdcancedMenu];
-}
+/*
 
 - (void)doubleTapScreen:(UITapGestureRecognizer *)recognizer {
     // check to see if we're above the keyboard
 	if (advancedmenushowing) [self hideAdcancedMenu];
 	else [self showAdcancedMenu];
 }
+ */
 
 - (void)key_1_pressed {
 	NSLog(@"Key 1 down.");
