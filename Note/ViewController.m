@@ -514,6 +514,7 @@
 - (void)threeFingerSwipeDown:(UITapGestureRecognizer *)recognizer {
     // Insert your own code to handle swipe down
 	[self showAdcancedMenu];
+}
 /*
 
 - (void)doubleTapScreen:(UITapGestureRecognizer *)recognizer {
