@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SharedMusic.h"
+#import "InstruScroll.h"
 
 @interface ViewController () {
 	SharedMusicInstrument currentInstrument;
@@ -21,6 +22,9 @@
 	UIImageView * backgroundView;
 	UIView *controlView;
 	UIView *instrumentSelection;
+
+	UIView *subScrollView;
+
 	UIImageView * instrumentBG;
 	UIImageView * advControlBG;
 
@@ -55,16 +59,22 @@
 	UIImage * inst_2_u;
 	UIImage * inst_3_u;
 	UIImage * inst_4_u;
+	UIImage * inst_5_u;
+	UIImage * inst_6_u;
 
 	UIImage * inst_1_s;
 	UIImage * inst_2_s;
 	UIImage * inst_3_s;
 	UIImage * inst_4_s;
+	UIImage * inst_5_s;
+	UIImage * inst_6_s;
 
 	UIImageView * inst_1;
 	UIImageView * inst_2;
 	UIImageView * inst_3;
 	UIImageView * inst_4;
+	UIImageView * inst_5;
+	UIImageView * inst_6;
 
 	UIImage * key_c_u;
 	UIImage * key_c_s;
@@ -96,6 +106,8 @@
 	UIImageView * record;
 	UIImageView * play;
 
+	InstruScroll *InstrumentScroll;
+
 	bool key_1_state;
 	bool key_2_state;
 	bool key_3_state;
@@ -120,6 +132,10 @@
 	NSTimer * arptimer;
 }
 
+
+@property (nonatomic, retain) UIView *subScrollView;
+@property (nonatomic, retain) InstruScroll *InstrumentScroll;
+
 @property (nonatomic, retain) UIImage * key_1_defaultBG;
 @property (nonatomic, retain) UIImage * key_2_defaultBG;
 @property (nonatomic, retain) UIImage * key_3_defaultBG;
@@ -142,11 +158,15 @@
 @property (nonatomic, retain) UIImage * inst_2_u;
 @property (nonatomic, retain) UIImage * inst_3_u;
 @property (nonatomic, retain) UIImage * inst_4_u;
+@property (nonatomic, retain) UIImage * inst_5_u;
+@property (nonatomic, retain) UIImage * inst_6_u;
 
 @property (nonatomic, retain) UIImage * inst_1_s;
 @property (nonatomic, retain) UIImage * inst_2_s;
 @property (nonatomic, retain) UIImage * inst_3_s;
 @property (nonatomic, retain) UIImage * inst_4_s;
+@property (nonatomic, retain) UIImage * inst_5_s;
+@property (nonatomic, retain) UIImage * inst_6_s;
 
 @property (nonatomic, retain) UIImage * key_c_u;
 @property (nonatomic, retain) UIImage * key_c_s;
@@ -185,6 +205,11 @@
 @end
 
 @implementation ViewController
+
+@synthesize subScrollView;
+
+@synthesize InstrumentScroll;
+
 @synthesize backgroundView;
 @synthesize instrumentBG;
 @synthesize advControlBG;
@@ -224,6 +249,10 @@
 @synthesize inst_3_u;
 @synthesize inst_4_s;
 @synthesize inst_4_u;
+@synthesize inst_5_s;
+@synthesize inst_5_u;
+@synthesize inst_6_s;
+@synthesize inst_6_u;
 @synthesize mode_1_s;
 @synthesize mode_1_u;
 @synthesize mode_2_s;
@@ -281,9 +310,20 @@
 	[sharedmusic setDelegateController:self];
 
 	self.view.multipleTouchEnabled = YES;
-	self.view.exclusiveTouch = NO;
+	self.view.exclusiveTouch = YES;
 
 	[self.view setMultipleTouchEnabled:true];
+
+	InstrumentScroll = [[[InstruScroll alloc] initWithFrame:CGRectMake(-20, 0, 1600, 220)] retain];
+	[InstrumentScroll setParentViewScroll:self];
+	InstrumentScroll.showsHorizontalScrollIndicator = NO;
+	InstrumentScroll.showsVerticalScrollIndicator = NO;
+	InstrumentScroll.contentSize = CGSizeMake(2020, 201);
+	InstrumentScroll.scrollEnabled = YES;
+	[InstrumentScroll setBackgroundColor:[UIColor clearColor]];
+	[InstrumentScroll setDelegate:self];
+	InstrumentScroll.bounces = YES;
+	[InstrumentScroll sizeToFit];
 	
 	// Do any additional setup after loading the view, typically from a nib.
 
@@ -299,6 +339,9 @@
 
 	instrumentSelection = [[[UIView alloc] initWithFrame:CGRectMake(0, -220, 1024, 220)] retain];
 	[instrumentSelection setBackgroundColor:[UIColor clearColor]];
+
+	subScrollView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 2000, 220)] retain];
+	[subScrollView setBackgroundColor:[UIColor clearColor]];
 
 	instrumentBG = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 220)] retain];
 	[instrumentBG setImage:[UIImage imageNamed:@"instrumentMenu.png"]];
@@ -329,10 +372,15 @@
 	inst_2_s = [[UIImage imageNamed:@"inst_2_s.png"] retain];
 	inst_3_s = [[UIImage imageNamed:@"inst_3_s.png"] retain];
 	inst_4_s = [[UIImage imageNamed:@"inst_4_s.png"] retain];
+	inst_5_s = [[UIImage imageNamed:@"inst_5_s.png"] retain];
+	inst_6_s = [[UIImage imageNamed:@"inst_6_s.png"] retain];
+	
 	inst_1_u = [[UIImage imageNamed:@"inst_1_u.png"] retain];
 	inst_2_u = [[UIImage imageNamed:@"inst_2_u.png"] retain];
 	inst_3_u = [[UIImage imageNamed:@"inst_3_u.png"] retain];
 	inst_4_u = [[UIImage imageNamed:@"inst_4_u.png"] retain];
+	inst_5_u = [[UIImage imageNamed:@"inst_5_u.png"] retain];
+	inst_6_u = [[UIImage imageNamed:@"inst_6_u.png"] retain];
 
 	inst_1 = [[UIImageView alloc] initWithFrame:CGRectMake(UIInstOffset+0, 8, 200, 190)];
 	[inst_1 setImage:inst_1_s];
@@ -342,6 +390,10 @@
 	[inst_3 setImage:inst_3_u];
 	inst_4 = [[UIImageView alloc] initWithFrame:CGRectMake(UIInstOffset+690, 8, 200, 190)];
 	[inst_4 setImage:inst_4_u];
+	inst_5 = [[UIImageView alloc] initWithFrame:CGRectMake(UIInstOffset+920, 8, 200, 190)];
+	[inst_5 setImage:inst_4_u];
+	inst_6 = [[UIImageView alloc] initWithFrame:CGRectMake(UIInstOffset+1150, 8, 200, 190)];
+	[inst_6 setImage:inst_4_u];
 	
 	key_1 = [[UIImageView alloc] initWithFrame:CGRectMake(UIKeyOffset+115*0, 548, 115, 220)];
 	[key_1 setImage:key_1_defaultBG];
@@ -366,10 +418,17 @@
 	[self.view addSubview:instrumentSelection];
 	[instrumentSelection addSubview:instrumentBG];
 	[controlView addSubview:advControlBG];
-	[instrumentSelection addSubview:inst_1];
-	[instrumentSelection addSubview:inst_2];
-	[instrumentSelection addSubview:inst_3];
-	[instrumentSelection addSubview:inst_4];
+
+
+	[instrumentSelection addSubview:InstrumentScroll];
+	[InstrumentScroll addSubview:subScrollView];
+	
+	[subScrollView addSubview:inst_1];
+	[subScrollView addSubview:inst_2];
+	[subScrollView addSubview:inst_3];
+	[subScrollView addSubview:inst_4];
+	[subScrollView addSubview:inst_5];
+	[subScrollView addSubview:inst_6];
 
 	//Add our buttons to the view
 	[self.view addSubview:key_1];
@@ -447,14 +506,8 @@
 	[threeFingerSwipeDown setNumberOfTouchesRequired:3];
     [[self view] addGestureRecognizer:threeFingerSwipeDown];
 
-	/*
-	UITapGestureRecognizer *doubleTapScreen = [[[UITapGestureRecognizer alloc]
-												initWithTarget:self
-												action:@selector(doubleTapScreen:)] autorelease];
-	doubleTapScreen.numberOfTapsRequired = 2;
-	doubleTapScreen.numberOfTouchesRequired = 3;
-	[[self view] addGestureRecognizer:doubleTapScreen];
-	 */
+	[self showAdcancedMenu];
+	
 }
 
 - (void)didReceiveMemoryWarning
@@ -515,14 +568,6 @@
     // Insert your own code to handle swipe down
 	[self showAdcancedMenu];
 }
-/*
-
-- (void)doubleTapScreen:(UITapGestureRecognizer *)recognizer {
-    // check to see if we're above the keyboard
-	if (advancedmenushowing) [self hideAdcancedMenu];
-	else [self showAdcancedMenu];
-}
- */
 
 - (void)key_1_pressed {
 	NSLog(@"Key 1 down.");
@@ -750,24 +795,48 @@
 		[inst_2 setImage:inst_2_u];
 		[inst_3 setImage:inst_3_u];
 		[inst_4 setImage:inst_4_u];
+		[inst_5 setImage:inst_5_u];
+		[inst_6 setImage:inst_6_u];
 	} else if (inst == strings) {
 		NSLog(@"Setting instrument to Strings...");
 		[inst_1 setImage:inst_1_u];
 		[inst_2 setImage:inst_2_s];
 		[inst_3 setImage:inst_3_u];
 		[inst_4 setImage:inst_4_u];
+		[inst_5 setImage:inst_5_u];
+		[inst_6 setImage:inst_6_u];
 	} else if (inst == bells) {
 		NSLog(@"Setting instrument to Bells...");
 		[inst_1 setImage:inst_1_u];
 		[inst_2 setImage:inst_2_u];
 		[inst_3 setImage:inst_3_s];
 		[inst_4 setImage:inst_4_u];
+		[inst_5 setImage:inst_5_u];
+		[inst_6 setImage:inst_6_u];
 	} else if (inst == horn) {
 		NSLog(@"Setting instrument to Horn...");
 		[inst_1 setImage:inst_1_u];
 		[inst_2 setImage:inst_2_u];
 		[inst_3 setImage:inst_3_u];
 		[inst_4 setImage:inst_4_s];
+		[inst_5 setImage:inst_5_u];
+		[inst_6 setImage:inst_6_u];
+	} else if (inst == soft) {
+		NSLog(@"Setting instrument to soft piano...");
+		[inst_1 setImage:inst_1_u];
+		[inst_2 setImage:inst_2_u];
+		[inst_3 setImage:inst_3_u];
+		[inst_4 setImage:inst_4_u];
+		[inst_5 setImage:inst_5_s];
+		[inst_6 setImage:inst_6_u];
+	} else if (inst == marimba) {
+		NSLog(@"Setting instrument to marimba...");
+		[inst_1 setImage:inst_1_u];
+		[inst_2 setImage:inst_2_u];
+		[inst_3 setImage:inst_3_u];
+		[inst_4 setImage:inst_4_u];
+		[inst_5 setImage:inst_5_u];
+		[inst_6 setImage:inst_6_s];
 	}
 }
 -(void)setCurrentMode:(SharedMusicMode)mode {
@@ -836,12 +905,17 @@
 	if (currentMode!=chord && CGRectContainsPoint(mode_2.frame, [touch locationInView:advControlBG])) [self setCurrentMode:chord];
 	if (currentMode!=arpegiated && CGRectContainsPoint(mode_3.frame, [touch locationInView:advControlBG])) [self setCurrentMode:arpegiated];
 }
+
 -(void)handleInstrumentState:(UITouch *)touch {
-	if (currentInstrument!=piano && CGRectContainsPoint(inst_1.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:piano];
-	if (currentInstrument!=strings && CGRectContainsPoint(inst_2.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:strings];
-	if (currentInstrument!=bells && CGRectContainsPoint(inst_3.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:bells];
-	if (currentInstrument!=horn && CGRectContainsPoint(inst_4.frame, [touch locationInView:instrumentSelection])) [self setCurrentInstrument:horn];
+	NSLog(@"test...");
+	if (currentInstrument!=piano && CGRectContainsPoint(inst_1.frame, [touch locationInView:subScrollView])) [self setCurrentInstrument:piano];
+	if (currentInstrument!=strings && CGRectContainsPoint(inst_2.frame, [touch locationInView:subScrollView])) [self setCurrentInstrument:strings];
+	if (currentInstrument!=bells && CGRectContainsPoint(inst_3.frame, [touch locationInView:subScrollView])) [self setCurrentInstrument:bells];
+	if (currentInstrument!=horn && CGRectContainsPoint(inst_4.frame, [touch locationInView:subScrollView])) [self setCurrentInstrument:horn];
+	if (currentInstrument!=soft && CGRectContainsPoint(inst_5.frame, [touch locationInView:subScrollView])) [self setCurrentInstrument:soft];
+	if (currentInstrument!=marimba && CGRectContainsPoint(inst_6.frame, [touch locationInView:subScrollView])) [self setCurrentInstrument:marimba];
 }
+
 -(void)handleMusicKeyState:(UITouch *)touch {
 	if (currentKey!=CMajor && CGRectContainsPoint(musickey_1.frame, [touch locationInView:advControlBG])) [self setCurrentKey:CMajor];
 	if (currentKey!=FMajor && CGRectContainsPoint(musickey_2.frame, [touch locationInView:advControlBG])) [self setCurrentKey:FMajor];
@@ -1033,6 +1107,7 @@
 
 	//handle instruments
 	if (event.allTouches.count == 1) {
+		NSLog(@"Test number one failed!");
 		[self handleInstrumentState:[touches anyObject]];
 		[self handleModeState:[touches anyObject]];
 		[self handleMusicKeyState:[touches anyObject]];

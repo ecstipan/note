@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SharedMusic.h"
 
 @implementation AppDelegate
 
@@ -25,6 +26,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+	[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:NULL];
+
     return YES;
 }
 							
@@ -48,6 +51,9 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
 	// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+	NSError *activationError = nil;
+	BOOL success = [[AVAudioSession sharedInstance] setActive: YES error: &activationError];
+	if (!success) { /* handle the error in activationError */ }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

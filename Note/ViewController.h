@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SharedMusic.h"
+#import "InstruScroll.h"
 
 @interface ViewController : UIViewController
-<AVAudioRecorderDelegate, AVAudioPlayerDelegate>
+<AVAudioRecorderDelegate, AVAudioPlayerDelegate, UIScrollViewDelegate>
 {
 
 	short int keyCount;
@@ -23,4 +24,5 @@
 
 }
 	- (void) clearRecordingState;
+	- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
 @end

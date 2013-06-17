@@ -33,7 +33,9 @@
 		piano,
 		strings,
 		bells,
-		horn
+		horn,
+		soft,
+		marimba
 	} SharedMusicInstrument;
 
 	typedef enum {
