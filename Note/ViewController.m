@@ -391,9 +391,9 @@
 	inst_4 = [[UIImageView alloc] initWithFrame:CGRectMake(UIInstOffset+690, 8, 200, 190)];
 	[inst_4 setImage:inst_4_u];
 	inst_5 = [[UIImageView alloc] initWithFrame:CGRectMake(UIInstOffset+920, 8, 200, 190)];
-	[inst_5 setImage:inst_4_u];
+	[inst_5 setImage:inst_5_u];
 	inst_6 = [[UIImageView alloc] initWithFrame:CGRectMake(UIInstOffset+1150, 8, 200, 190)];
-	[inst_6 setImage:inst_4_u];
+	[inst_6 setImage:inst_6_u];
 	
 	key_1 = [[UIImageView alloc] initWithFrame:CGRectMake(UIKeyOffset+115*0, 548, 115, 220)];
 	[key_1 setImage:key_1_defaultBG];
